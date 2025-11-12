@@ -11,103 +11,103 @@ The template includes many mathematical shortcuts for common operations.
 
 First-order partial derivative:
 \[
-\pd{f}{x} = \frac{\partial f}{\partial x}
+\pd{f}{x}
 \]
 
 Second-order partial derivative:
 \[
-\pdd{f}{x} = \frac{\partial^2 f}{\partial x^2}
+\pdd{f}{x}
 \]
 
 Mixed partial derivative:
 \[
-\pdc{f}{x}{y} = \frac{\partial^2 f}{\partial x \partial y}
+\pdc{f}{x}{y}
 \]
 
 Partial time derivative (common in physics):
 \[
-\pdt{u} = \frac{\partial u}{\partial t}
+\pdt{u}
 \]
 
 \subsubsection{Total Derivatives}
 
 First derivative:
 \[
-\td{s}{t} = \frac{ds}{dt}
+\td{s}{t}
 \]
 
 Second derivative:
 \[
-\tdd{x}{t} = \frac{d^2x}{dt^2} = \ddot{x}
+\tdd{x}{t} = \ddot{x}
 \]
 
 \subsection{Vector Calculus Operators}
 
 \subsubsection{Gradient}
 \[
-\grad f = \vnabla f = \pd{f}{x}\xhat + \pd{f}{y}\yhat + \pd{f}{z}\zhat
+\grad f = \pd{f}{x}\xhat + \pd{f}{y}\yhat + \pd{f}{z}\zhat
 \]
 
 Example with electric potential:
 \[
-\vect{E} = -\grad V
+\vec{E} = -\grad V
 \]
 
 \subsubsection{Divergence}
 \[
-\Div \vect{F} = \vnabla \cdot \vect{F} = \pd{F_x}{x} + \pd{F_y}{y} + \pd{F_z}{z}
+\Div \vec{F} = \pd{F_x}{x} + \pd{F_y}{y} + \pd{F_z}{z}
 \]
 
 Gauss's law:
 \[
-\Div \vect{E} = \frac{\rho}{\epsilon_0}
+\Div \vec{E} = \frac{\rho}{\epsilon_0}
 \]
 
 \subsubsection{Curl}
 \[
-\curl \vect{F} = \vnabla \times \vect{F}
+\curl \vec{F}
 \]
 
 Faraday's law:
 \[
-\curl \vect{E} = -\pdt{\vect{B}}
+\curl \vec{E} = -\pdt{\vec{B}}
 \]
 
 \subsection{Vector Operations}
 
 \subsubsection{Dot Product}
 \[
-\vect{a} \vdot \vect{b} = |\vect{a}||\vect{b}|\cos\theta
+\vec{a} \vdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta
 \]
 
 \subsubsection{Vector Projection}
-Projection of $\vect{b}$ onto $\vect{a}$:
+Projection of $\vec{b}$ onto $\vec{a}$:
 \[
-\text{proj}_{\vect{a}}\vect{b} = \vproj{a}{b} = \frac{\vect{a} \vdot \vect{b}}{|\vect{a}|^2}\vect{a}
+\vproj{a}{b} = \frac{\vec{a} \vdot \vec{b}}{|\vec{a}|^2}\vec{a}
 \]
 
 \subsubsection{Angle Between Vectors}
 \[
-\theta = \vang{a}{b} = \arccos\left(\frac{\vect{a} \vdot \vect{b}}{|\vect{a}||\vect{b}|}\right)
+\theta = \vang{a}{b} = \arccos\left(\frac{\vec{a} \vdot \vec{b}}{|\vec{a}||\vec{b}|}\right)
 \]
 
 \subsection{Matrix Operations}
 
 \subsubsection{Trace}
 \[
-\trace(\matr{A}) = \sum_{i=1}^n A_{ii}
+\trace(\mat{A}) = \sum_{i=1}^n A_{ii}
 \]
 
 \subsubsection{Rank}
 \[
-\rank(\matr{A}) = \text{number of linearly independent columns}
+\rank(\mat{A}) = \text{number of linearly independent columns}
 \]
 
 \subsection{Utilities}
 
 \subsubsection{Absolute Value and Norm}
 \[
-\abs{x} = |x|, \quad \norm{\vect{v}} = \sqrt{\vect{v} \vdot \vect{v}}
+\abs{x} = |x|, \quad \norm{\vec{v}} = \sqrt{\vec{v} \vdot \vec{v}}
 \]
 
 \subsubsection{Probability}

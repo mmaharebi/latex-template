@@ -16,19 +16,19 @@ Scalars are rendered in italic (default math mode):
 \subsubsection{Vectors}
 Vectors use bold with underline for clear distinction:
 \[
-\vect{v} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}, \quad
-\vect{F} = m\vect{a}
+\vec{v} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}, \quad
+\vec{F} = m\vec{a}
 \]
 
 Position vector example:
 \[
-\vect{r} = x\xhat + y\yhat + z\zhat
+\vec{r} = x\xhat + y\yhat + z\zhat
 \]
 
 \subsubsection{Matrices}
 Matrices use bold with double underline:
 \[
-\matr{A} = \begin{bmatrix} 
+\mat{A} = \begin{bmatrix} 
 1 & 2 & 3 \\
 4 & 5 & 6 \\
 7 & 8 & 9
@@ -37,13 +37,13 @@ Matrices use bold with double underline:
 
 Matrix-vector multiplication:
 \[
-\matr{A}\vect{x} = \vect{b}
+\mat{A}\vec{x} = \vec{b}
 \]
 
 \subsubsection{Tensors}
 Higher-order tensors use bold calligraphic notation:
 \[
-\tensor{T} = \sum_{i,j,k} T_{ijk} \, \vect{e}_i \otimes \vect{e}_j \otimes \vect{e}_k
+\tensor{T} = \sum_{i,j,k} T_{ijk} \, \uevec{i} \otimes \uevec{j} \otimes \uevec{k}
 \]
 
 Stress tensor in continuum mechanics:
@@ -61,17 +61,17 @@ The template provides unit vectors for common coordinate systems:
 
 \paragraph{Cartesian coordinates:}
 \[
-\vect{v} = v_x\xhat + v_y\yhat + v_z\zhat
+\vec{v} = v_x\xhat + v_y\yhat + v_z\zhat
 \]
 
 \paragraph{Cylindrical coordinates:}
 \[
-\vect{E} = E_\rho\rhohat + E_\phi\phihat + E_z\zhat
+\vec{E} = E_\rho\rhohat + E_\phi\phihat + E_z\zhat
 \]
 
 \paragraph{Spherical coordinates:}
 \[
-\vect{F} = F_R\Rhat + F_\theta\thetahat + F_\phi\phihat
+\vec{F} = F_R\Rhat + F_\theta\thetahat + F_\phi\phihat
 \]
 
 \subsection{Why This Notation?}
@@ -79,7 +79,7 @@ The template provides unit vectors for common coordinate systems:
 This notation system provides:
 \begin{itemize}
     \item \textbf{Visual clarity} -- Each object type has distinct appearance
-    \item \textbf{Reduced ambiguity} -- No confusion between $\scalar{A}$ (scalar) and $\matr{A}$ (matrix)
+    \item \textbf{Reduced ambiguity} -- No confusion between $\scalar{A}$ (scalar) and $\mat{A}$ (matrix)
     \item \textbf{Better readability} -- Complex equations are easier to parse
     \item \textbf{Consistency} -- Throughout your entire document
 \end{itemize}

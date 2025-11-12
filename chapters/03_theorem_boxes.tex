@@ -21,47 +21,47 @@ Reference it later: See Theorem~\ref{thm:pythag}.
 \begin{theorem}{Fundamental Theorem of Calculus}{ftc}
 If $f$ is continuous on $[a,b]$ and $F$ is an antiderivative of $f$, then:
 \[
-\int_a^b f(x) \dif x = F(b) - F(a)
+\int\limits_a^b f(x) \dif x = F(b) - F(a)
 \]
 \end{theorem}
 
 \subsubsection{Lemmas and Corollaries}
 
 \begin{lemma}{Cauchy-Schwarz Inequality}{cs}
-For any vectors $\vect{u}$ and $\vect{v}$:
+For any vectors $\vec{u}$ and $\vec{v}$:
 \[
-|\vect{u} \vdot \vect{v}| \leq \norm{\vect{u}} \cdot \norm{\vect{v}}
+|\vec{u} \vdot \vec{v}| \leq \norm{\vec{u}} \cdot \norm{\vec{v}}
 \]
 \end{lemma}
 
 \begin{corollary}{Triangle Inequality}{triangle}
-For any vectors $\vect{u}$ and $\vect{v}$:
+For any vectors $\vec{u}$ and $\vec{v}$:
 \[
-\norm{\vect{u} + \vect{v}} \leq \norm{\vect{u}} + \norm{\vect{v}}
+\norm{\vec{u} + \vec{v}} \leq \norm{\vec{u}} + \norm{\vec{v}}
 \]
 \end{corollary}
 
 \subsubsection{Definitions}
 
 \begin{definition}{Linear Independence}{linindep}
-A set of vectors $\{\vect{v}_1, \vect{v}_2, \ldots, \vect{v}_n\}$ is \textbf{linearly independent} if:
+A set of vectors $\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}$ is \textbf{linearly independent} if:
 \[
-c_1\vect{v}_1 + c_2\vect{v}_2 + \cdots + c_n\vect{v}_n = \vect{0}
+c_1\vec{v}_1 + c_2\vec{v}_2 + \cdots + c_n\vec{v}_n = \vec{0}
 \]
 implies $c_1 = c_2 = \cdots = c_n = 0$.
 \end{definition}
 
 \begin{definition}{Eigenvalue and Eigenvector}{eigen}
-A scalar $\lambda$ is an \textbf{eigenvalue} of matrix $\matr{A}$ if there exists a non-zero vector $\vect{v}$ (the \textbf{eigenvector}) such that:
+A scalar $\lambda$ is an \textbf{eigenvalue} of matrix $\mat{A}$ if there exists a non-zero vector $\vec{v}$ (the \textbf{eigenvector}) such that:
 \[
-\matr{A}\vect{v} = \lambda\vect{v}
+\mat{A}\vec{v} = \lambda\vec{v}
 \]
 \end{definition}
 
 \subsubsection{Notes}
 
 \begin{note}{Important Observation}{note1}
-The notation system helps distinguish between $\matr{A}\vect{v}$ (matrix times vector) and $\scalar{A}\vect{v}$ (scalar times vector) at a glance.
+The notation system helps distinguish between $\mat{A}\vec{v}$ (matrix times vector) and $\scalar{A}\vec{v}$ (scalar times vector) at a glance.
 \end{note}
 
 \subsection{Plain Theorem Environments}
@@ -69,9 +69,9 @@ The notation system helps distinguish between $\matr{A}\vect{v}$ (matrix times v
 For backward compatibility, plain (non-colored) environments are also available:
 
 \begin{example}[Finding Eigenvalues]
-For the matrix $\matr{A} = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$, solve:
+For the matrix $\mat{A} = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$, solve:
 \[
-\det(\matr{A} - \lambda\matr{I}) = 0
+\det(\mat{A} - \lambda\mat{I}) = 0
 \]
 \[
 \det\begin{bmatrix} 2-\lambda & 1 \\ 1 & 2-\lambda \end{bmatrix} = (2-\lambda)^2 - 1 = 0
@@ -96,7 +96,7 @@ Division by zero is undefined! Always check denominators before computing.
 \begin{importantbox}
 Remember: matrix multiplication is NOT commutative! 
 \[
-\matr{A}\matr{B} \neq \matr{B}\matr{A} \quad \text{(in general)}
+\mat{A}\mat{B} \neq \mat{B}\mat{A} \quad \text{(in general)}
 \]
 \end{importantbox}
 
@@ -113,7 +113,7 @@ For large sparse matrices, use specialized sparse solvers instead of dense matri
 \begin{enumerate}
     \item Set up the characteristic equation
     \item Solve for eigenvalues: $\lambda_1 = 3$, $\lambda_2 = 1$
-    \item Find eigenvectors by solving $(\matr{A} - \lambda\matr{I})\vect{v} = \vect{0}$
+    \item Find eigenvectors by solving $(\mat{A} - \lambda\mat{I})\vec{v} = \vec{0}$
 \end{enumerate}
 \end{solutionbox}
 

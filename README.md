@@ -66,9 +66,9 @@ This template implements a systematic physical-style notation system:- **Tensors
 
 | **Scalar** | Italic | `\scalar{x}` | *x* |---
 
-| **Vector** | Bold + underline | `\vect{v}` | **v̲** |
+| **Vector** | Bold + underline | `\vec{v}` | **v̲** |
 
-| **Matrix** | Bold + double underline | `\matr{A}` | **A̲̲** |## Motivation
+| **Matrix** | Bold + double underline | `\mat{A}` | **A̲̲** |## Motivation
 
 | **Tensor** | Bold calligraphic | `\tensor{T}` | **𝓣** |
 
@@ -158,17 +158,17 @@ pdflatex main.tex # Run twice for references
 
 - Edit `config/glossary.tex` - Add your glossary entries and acronyms| **Scalar** | `\scalar{a}` | `\scalar{\alpha}`, `\scalar{E}` | Italic (single real or complex number) |
 
-- Edit `references.bib` - Add your bibliography entries| **Vector** | `\vect{v}` | `\vect{E}`, `\vect{F}`, `\vect{v}` | **Bold + single underline** (column vector) |
+- Edit `references.bib` - Add your bibliography entries| **Vector** | `\vec{v}` | `\vec{E}`, `\vec{F}`, `\vec{v}` | **Bold + single underline** (column vector) |
 
-- Modify `sections/` - Replace example content with your own| **Matrix** | `\matr{A}` | `\matr{M}`, `\matr{K}` | **Bold + double underline** (2D array) |
+- Modify `sections/` - Replace example content with your own| **Matrix** | `\mat{A}` | `\mat{M}`, `\mat{K}` | **Bold + double underline** (2D array) |
 
 | **Tensor (≥3)** | `\tensor{T}` | `\tensor{C}`, or $C_{ijkl}$ | **Bold calligraphic** or explicit indices |
 
----| **Unit vector** | `\hat{\vect{e}}_i` | `\hat{\vect{x}}` | Hat over underlined bold vector |
+---| **Unit vector** | `\hat{\vec{e}}_i` | `\hat{\vec{x}}` | Hat over underlined bold vector |
 
-| **Zero** | `\vect{0}`, `\matr{0}` | — | Underlined bold zero |
+| **Zero** | `\vec{0}`, `\mat{0}` | — | Underlined bold zero |
 
-## Project Structure| **Identity** | `\matr{I}_n` | — | Double-underlined bold I |
+## Project Structure| **Identity** | `\mat{I}_n` | — | Double-underlined bold I |
 
 
 
@@ -190,35 +190,35 @@ pdflatex main.tex # Run twice for references
 
 │   ├── macros.tex             # Custom notation macros| `\scalar{a}` | Scalar | italic, $\scalar{a}\in\mathbb{R}$ | Single numeric value |
 
-│   ├── theorems.tex           # Theorem environments| `\vect{v}` | Vector | bold + underline, $\vect{v}\in\mathbb{R}^n$ | Column vector, e.g. $\vect{v}=[v_1,\dots,v_n]^\top$ |
+│   ├── theorems.tex           # Theorem environments| `\vec{v}` | Vector | bold + underline, $\vec{v}\in\mathbb{R}^n$ | Column vector, e.g. $\vec{v}=[v_1,\dots,v_n]^\top$ |
 
-│   ├── metadata.tex           # Author, title, PDF metadata| `\matr{A}` | Matrix | bold + double underline, $\matr{A}\in\mathbb{R}^{m\times n}$ | Linear map; entries $A_{ij}$ |
+│   ├── metadata.tex           # Author, title, PDF metadata| `\mat{A}` | Matrix | bold + double underline, $\mat{A}\in\mathbb{R}^{m\times n}$ | Linear map; entries $A_{ij}$ |
 
-│   └── glossary.tex           # Glossary and acronym definitions| `\matr{A}^\top` | Transpose | superscript $^\top$ | Rows ↔ columns |
+│   └── glossary.tex           # Glossary and acronym definitions| `\mat{A}^\top` | Transpose | superscript $^\top$ | Rows ↔ columns |
 
-│| `\matr{A}^*` or `\matr{A}^\dagger` | Conjugate transpose | Hermitian conjugate | $(\matr{A}^*)_{ij}=\overline{A_{ji}}$ |
+│| `\mat{A}^*` or `\mat{A}^\dagger` | Conjugate transpose | Hermitian conjugate | $(\mat{A}^*)_{ij}=\overline{A_{ji}}$ |
 
-├── sections/                   # Content sections (modify these)| `\langle\vect{u},\vect{v}\rangle` | Inner product | angle brackets | $\langle\vect{u},\vect{v}\rangle=\vect{u}^\top\vect{v}$ (real) |
+├── sections/                   # Content sections (modify these)| `\langle\vec{u},\vec{v}\rangle` | Inner product | angle brackets | $\langle\vec{u},\vec{v}\rangle=\vec{u}^\top\vec{v}$ (real) |
 
-│   ├── introduction.tex| `\|\vect{v}\|` | Norm | double bars | Euclidean norm $\|\vect{v}\|_2=\sqrt{\langle\vect{v},\vect{v}\rangle}$ |
+│   ├── introduction.tex| `\|\vec{v}\|` | Norm | double bars | Euclidean norm $\|\vec{v}\|_2=\sqrt{\langle\vec{v},\vec{v}\rangle}$ |
 
-│   ├── basic_notation.tex| `\vect{u}\otimes\vect{v}` | Tensor product | $\otimes$ | Rank-1 tensor / outer product |
+│   ├── basic_notation.tex| `\vec{u}\otimes\vec{v}` | Tensor product | $\otimes$ | Rank-1 tensor / outer product |
 
-│   ├── linear_algebra.tex| `\vect{u}\vect{v}^\top` | Outer product | vector × transpose | Matrix with entries $u_i v_j$ |
+│   ├── linear_algebra.tex| `\vec{u}\vec{v}^\top` | Outer product | vector × transpose | Matrix with entries $u_i v_j$ |
 
-│   ├── physics.tex| `\matr{I}_n` | Identity matrix | $n\times n$ | $\matr{I}_n \vect{x} = \vect{x}$ |
+│   ├── physics.tex| `\mat{I}_n` | Identity matrix | $n\times n$ | $\mat{I}_n \vec{x} = \vec{x}$ |
 
-│   ├── engineering.tex| `\vect{0}`, `\matr{0}` | Zero vector/matrix | | All entries zero |
+│   ├── engineering.tex| `\vec{0}`, `\mat{0}` | Zero vector/matrix | | All entries zero |
 
-│   ├── quantum_mechanics.tex| `\det(\matr{A})` | Determinant | scalar | Volume scaling factor |
+│   ├── quantum_mechanics.tex| `\det(\mat{A})` | Determinant | scalar | Volume scaling factor |
 
-│   ├── applications.tex| `\operatorname{tr}(\matr{A})` | Trace | scalar | Sum of diagonal entries |
+│   ├── applications.tex| `\operatorname{tr}(\mat{A})` | Trace | scalar | Sum of diagonal entries |
 
-│   ├── conclusion.tex| `\operatorname{rank}(\matr{A})` | Rank | integer | Dimension of column space |
+│   ├── conclusion.tex| `\operatorname{rank}(\mat{A})` | Rank | integer | Dimension of column space |
 
-│   └── appendix.tex| $(\scalar{\lambda},\vect{x})$ | Eigenpair | $\matr{A}\vect{x}=\scalar{\lambda}\vect{x}$ | Eigenvalue $\scalar{\lambda}$, eigenvector $\vect{x}\neq\vect{0}$ |
+│   └── appendix.tex| $(\scalar{\lambda},\vec{x})$ | Eigenpair | $\mat{A}\vec{x}=\scalar{\lambda}\vec{x}$ | Eigenvalue $\scalar{\lambda}$, eigenvector $\vec{x}\neq\vec{0}$ |
 
-│| $\{\vect{e}_i\}$ | Canonical basis | standard basis | $\vect{e}_i$ has 1 at position $i$, 0 elsewhere |
+│| $\{\vec{e}_i\}$ | Canonical basis | standard basis | $\vec{e}_i$ has 1 at position $i$, 0 elsewhere |
 
 ├── figures/                    # TikZ diagrams
 
@@ -238,15 +238,15 @@ pdflatex main.tex # Run twice for references
 
 ```\[
 
-  \matr{A}\vect{x} = \vect{b},
+  \mat{A}\vec{x} = \vec{b},
 
 ---\]
 
-where $\matr{A}\in\mathbb{R}^{n\times n}$ is a square matrix, 
+where $\mat{A}\in\mathbb{R}^{n\times n}$ is a square matrix, 
 
-## Notation System$\vect{x}\in\mathbb{R}^n$ is the unknown vector, 
+## Notation System$\vec{x}\in\mathbb{R}^n$ is the unknown vector, 
 
-and $\vect{b}\in\mathbb{R}^n$ is the right-hand side.
+and $\vec{b}\in\mathbb{R}^n$ is the right-hand side.
 
 ### Basic Usage```
 
@@ -256,19 +256,19 @@ and $\vect{b}\in\mathbb{R}^n$ is the right-hand side.
 
 % Scalars (italic by default)```latex
 
-Let $\scalar{x} = 5$ and $\scalar{y} = 3$.The eigenvalue problem for $\matr{A}$ is
+Let $\scalar{x} = 5$ and $\scalar{y} = 3$.The eigenvalue problem for $\mat{A}$ is
 
 \[
 
-% Vectors (bold + underline)  \matr{A}\vect{x} = \scalar{\lambda}\vect{x},
+% Vectors (bold + underline)  \mat{A}\vec{x} = \scalar{\lambda}\vec{x},
 
-The velocity vector is $\vect{v} = \vect{v}_0 + \vect{a}t$.\]
+The velocity vector is $\vec{v} = \vec{v}_0 + \vec{a}t$.\]
 
 where $\scalar{\lambda}\in\mathbb{C}$ is the eigenvalue 
 
-% Matrices (bold + double underline)and $\vect{x}\neq\vect{0}$ is the corresponding eigenvector.
+% Matrices (bold + double underline)and $\vec{x}\neq\vec{0}$ is the corresponding eigenvector.
 
-The transformation matrix $\matr{A}$ satisfies $\matr{A}\vect{x} = \vect{b}$.```
+The transformation matrix $\mat{A}$ satisfies $\mat{A}\vec{x} = \vec{b}$.```
 
 
 
@@ -280,13 +280,13 @@ The stress tensor $\tensor{σ}$ relates stress to strain.```latex
 
 \[
 
-### Common Patterns  \vect{F} = \scalar{m}\vect{a},
+### Common Patterns  \vec{F} = \scalar{m}\vec{a},
 
 \]
 
-```latexwhere $\vect{F}$ is the net force, $\scalar{m}$ is the scalar mass, 
+```latexwhere $\vec{F}$ is the net force, $\scalar{m}$ is the scalar mass, 
 
-% Unit vectorsand $\vect{a}$ is the acceleration vector.
+% Unit vectorsand $\vec{a}$ is the acceleration vector.
 
 $\xhat, \yhat, \zhat$                    % Cartesian```
 
@@ -296,11 +296,11 @@ $\Rhat, \thetahat, \phihat$             % Spherical### Example 4: Inline text
 
 ```latex
 
-% Vector operationsThe electric field $\vect{E}$ at position $\vect{r}$ 
+% Vector operationsThe electric field $\vec{E}$ at position $\vec{r}$ 
 
-$\vect{a} \vdot \vect{b}$               % Dot productis computed from the potential $\scalar{\phi}$ as 
+$\vec{a} \vdot \vec{b}$               % Dot productis computed from the potential $\scalar{\phi}$ as 
 
-$\vproj{a}{b}$                          % Projection of b onto a$\vect{E} = -\nabla\scalar{\phi}$.
+$\vproj{a}{b}$                          % Projection of b onto a$\vec{E} = -\nabla\scalar{\phi}$.
 
 $\vang{a}{b}$                           % Angle between vectors```
 
@@ -320,11 +320,11 @@ $\td{s}{t}$                             % ds/dt### Option 1: Use the Complete La
 
 % OperatorsThis repository includes a ready-to-use LaTeX template with comprehensive examples:
 
-$\vnabla \times \vect{E}$               % Curl
+$\vnabla \times \vec{E}$               % Curl
 
-$\vnabla \cdot \vect{B}$                % Divergence**Files included:**
+$\vnabla \cdot \vec{B}$                % Divergence**Files included:**
 
-$\grad f$, $\Div \vect{F}$, $\curl \vect{A}$- `main.tex` - Complete LaTeX document with examples from physics, linear algebra, engineering
+$\grad f$, $\Div \vec{F}$, $\curl \vec{A}$- `main.tex` - Complete LaTeX document with examples from physics, linear algebra, engineering
 
 ```- `Makefile` - Build automation with multiple targets
 
@@ -404,7 +404,7 @@ For simple amsthm-style boxes (no fancy colors), use the standard syntax:
 
 \begin{example}[Optional Title]% Tensor (order >= 3): bold calligraphic
 
-  Let $\matr{A} = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$.\newcommand{\tensor}[1]{\boldsymbol{\mathcal{#1}}}
+  Let $\mat{A} = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$.\newcommand{\tensor}[1]{\boldsymbol{\mathcal{#1}}}
 
 \end{example}```
 
@@ -414,7 +414,7 @@ For simple amsthm-style boxes (no fancy colors), use the standard syntax:
 
 \begin{remark}[Note about convergence]```latex
 
-  The series converges for all $x \in [0,1]$.\matr{A}\vect{x} = \vect{b}
+  The series converges for all $x \in [0,1]$.\mat{A}\vec{x} = \vec{b}
 
 \end{remark}```
 
@@ -428,7 +428,7 @@ For simple amsthm-style boxes (no fancy colors), use the standard syntax:
 
 \end{definition}2. Copy the macro definitions from `main.tex` to your preamble
 
-```3. Start writing equations using `\vect{v}`, `\matr{A}`, etc.
+```3. Start writing equations using `\vec{v}`, `\mat{A}`, etc.
 
 4. Or upload the entire `main.tex` file as a starting template
 
@@ -492,15 +492,15 @@ For simple amsthm-style boxes (no fancy colors), use the standard syntax:
 
 ---
 
-1. **Apply macros uniformly:** Don't mix `\mathbf{v}` and `\vect{v}` in the same document.
+1. **Apply macros uniformly:** Don't mix `\mathbf{v}` and `\vec{v}` in the same document.
 
 ## Advanced Features2. **Index notation clarity:** For tensors of order ≥3, consider explicit indices (e.g., $C_{ijkl}$) if your audience is more familiar with that style.
 
-3. **Unit vectors:** Use `\hat{\vect{e}}_i` or `\hat{\vect{n}}` to denote normalized direction vectors.
+3. **Unit vectors:** Use `\hat{\vec{e}}_i` or `\hat{\vec{n}}` to denote normalized direction vectors.
 
 ### Glossary and Acronyms4. **Operators in roman:** Always use `\det`, `\operatorname{tr}`, `\operatorname{rank}`, `\nabla` (upright) to distinguish them from variables.
 
-5. **Color for emphasis (optional):** In presentations or lecture notes, you may combine underlining with color (e.g., `\textcolor{blue}{\vect{v}}`), but avoid this in print journals.
+5. **Color for emphasis (optional):** In presentations or lecture notes, you may combine underlining with color (e.g., `\textcolor{blue}{\vec{v}}`), but avoid this in print journals.
 
 Add entries in `config/glossary.tex`:6. **Compatibility with math fonts:** The underlining works with most standard LaTeX fonts (Computer Modern, Latin Modern, etc.). Test with your chosen font package.
 
@@ -554,9 +554,9 @@ To print the glossary (add to your document):**Quick Reference:**
 
 \printglossary| Scalar | `\scalar{a}` | $\mathit{a}$ |
 
-```| Vector | `\vect{v}` | **$\underline{\mathbf{v}}$** |
+```| Vector | `\vec{v}` | **$\underline{\mathbf{v}}$** |
 
-| Matrix | `\matr{A}` | **$\underline{\underline{\mathbf{A}}}$** |
+| Matrix | `\mat{A}` | **$\underline{\underline{\mathbf{A}}}$** |
 
 ### Bibliography| Tensor | `\tensor{T}` | $\boldsymbol{\mathcal{T}}$ |
 

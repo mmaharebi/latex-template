@@ -16,18 +16,18 @@ Calculate the electric and magnetic fields of a plane electromagnetic wave propa
 \begin{definition}{Electromagnetic Wave}{emwave}
 An \gls{em} wave is a solution to Maxwell's equations in vacuum that satisfies:
 \[
-\vnabla^2 \vect{E} = \mu_0\epsilon_0 \pdd{\vect{E}}{t}, \quad
-\vnabla^2 \vect{B} = \mu_0\epsilon_0 \pdd{\vect{B}}{t}
+\vnabla^2 \vec{E} = \mu_0\epsilon_0 \pdd{\vec{E}}{t}, \quad
+\vnabla^2 \vec{B} = \mu_0\epsilon_0 \pdd{\vec{B}}{t}
 \]
 \end{definition}
 
 \begin{theorem}{Wave Equation Solution}{wavesol}
 A plane wave solution has the form:
 \begin{align}
-\vect{E}(\vect{r}, t) &= \vect{E}_0 \cos(\vect{k} \vdot \vect{r} - \omega t) \\
-\vect{B}(\vect{r}, t) &= \vect{B}_0 \cos(\vect{k} \vdot \vect{r} - \omega t)
+\vec{E}(\vec{r}, t) &= \vec{E}_0 \cos(\vec{k} \vdot \vec{r} - \omega t) \\
+\vec{B}(\vec{r}, t) &= \vec{B}_0 \cos(\vec{k} \vdot \vec{r} - \omega t)
 \end{align}
-where $\omega = c|\vect{k}|$ and $c = \SI{3e8}{\meter\per\second}$.
+where $\omega = c|\vec{k}|$ and $c = \SI{3e8}{\meter\per\second}$.
 \end{theorem}
 
 \subsection{Key Relationships}
@@ -49,30 +49,30 @@ For a wave at $f = \SI{2.4}{\giga\hertz}$:
 \begin{theorem}{Perpendicularity Conditions}{perp}
 The electric field, magnetic field, and wave vector satisfy:
 \begin{align}
-\vect{E} \perp \vect{B}, \quad
-\vect{E} \perp \vect{k}, \quad
-\vect{B} \perp \vect{k}
+\vec{E} \perp \vec{B}, \quad
+\vec{E} \perp \vec{k}, \quad
+\vec{B} \perp \vec{k}
 \end{align}
 \end{theorem}
 
 Magnitude relationship:
 \[
-|\vect{B}| = \frac{|\vect{E}|}{c}
+|\vec{B}| = \frac{|\vec{E}|}{c}
 \]
 
 \subsection{Specific Example}
 
 \begin{example}[Plane Wave Propagating in +z Direction]
-Consider a wave with $\vect{k} = k\zhat$ where $k = \SI{5.03e8}{\per\meter}$.
+Consider a wave with $\vec{k} = k\zhat$ where $k = \SI{5.03e8}{\per\meter}$.
 
 The electric field polarized in $\xhat$ direction:
 \[
-\vect{E}(z,t) = E_0 \cos(kz - \omega t) \xhat
+\vec{E}(z,t) = E_0 \cos(kz - \omega t) \xhat
 \]
 
-The corresponding magnetic field (from $\vect{B} = \frac{1}{c}\hat{k} \times \vect{E}$):
+The corresponding magnetic field (from $\vec{B} = \frac{1}{c}\hat{k} \times \vec{E}$):
 \[
-\vect{B}(z,t) = \frac{E_0}{c} \cos(kz - \omega t) \yhat
+\vec{B}(z,t) = \frac{E_0}{c} \cos(kz - \omega t) \yhat
 \]
 
 where:
@@ -89,13 +89,13 @@ where:
 
 The electromagnetic energy density:
 \[
-u = \frac{1}{2}\left(\epsilon_0 |\vect{E}|^2 + \frac{1}{\mu_0}|\vect{B}|^2\right)
+u = \frac{1}{2}\left(\epsilon_0 |\vec{E}|^2 + \frac{1}{\mu_0}|\vec{B}|^2\right)
 \]
 
 \begin{note}{Equal Contributions}{energy}
 For plane waves, the electric and magnetic contributions are equal:
 \[
-u_E = \frac{1}{2}\epsilon_0 |\vect{E}|^2 = u_B = \frac{1}{2\mu_0}|\vect{B}|^2
+u_E = \frac{1}{2}\epsilon_0 |\vec{E}|^2 = u_B = \frac{1}{2\mu_0}|\vec{B}|^2
 \]
 \end{note}
 
@@ -103,12 +103,12 @@ u_E = \frac{1}{2}\epsilon_0 |\vect{E}|^2 = u_B = \frac{1}{2\mu_0}|\vect{B}|^2
 
 Energy flux (power per area):
 \[
-\vect{S} = \frac{1}{\mu_0} \vect{E} \times \vect{B}
+\vec{S} = \frac{1}{\mu_0} \vec{E} \times \vec{B}
 \]
 
 For our example:
 \[
-|\vect{S}| = \frac{E_0^2}{c\mu_0} \cos^2(kz - \omega t)
+|\vec{S}| = \frac{E_0^2}{c\mu_0} \cos^2(kz - \omega t)
 \]
 
 Time-averaged intensity:
@@ -124,8 +124,8 @@ For a \SI{2.4}{\giga\hertz} plane wave with $E_0 = \SI{1}{\volt\per\meter}$:
 \begin{enumerate}
     \item \textbf{Wavelength:} $\lambda = \SI{12.5}{\centi\meter}$
     \item \textbf{Wave vector:} $k = \SI{5.03e8}{\per\meter}$
-    \item \textbf{Electric field:} $\vect{E} = E_0 \cos(kz - \omega t) \xhat$
-    \item \textbf{Magnetic field:} $\vect{B} = (E_0/c) \cos(kz - \omega t) \yhat$
+    \item \textbf{Electric field:} $\vec{E} = E_0 \cos(kz - \omega t) \xhat$
+    \item \textbf{Magnetic field:} $\vec{B} = (E_0/c) \cos(kz - \omega t) \yhat$
     \item \textbf{Power density:} $\langle S \rangle \approx \SI{1.3}{\milli\watt\per\meter\squared}$
 \end{enumerate}
 \end{solutionbox}
@@ -135,12 +135,12 @@ For a \SI{2.4}{\giga\hertz} plane wave with $E_0 = \SI{1}{\volt\per\meter}$:
 \begin{tipbox}{Using the Notation System}{notation-tip}
 Notice how the notation system helps:
 \begin{itemize}
-    \item $\vect{E}, \vect{B}, \vect{k}, \vect{S}$ are clearly vectors (bold + underline)
+    \item $\vec{E}, \vec{B}, \vec{k}, \vec{S}$ are clearly vectors (bold + underline)
     \item $E_0, k, \omega, c$ are clearly scalars (italic)
     \item No confusion in complex equations with many variables
 \end{itemize}
 \end{tipbox}
 
 \begin{warningbox}
-Always verify that $\vect{E} \perp \vect{B} \perp \vect{k}$ for plane waves. If these relationships don't hold, you may have made an error!
+Always verify that $\vec{E} \perp \vec{B} \perp \vec{k}$ for plane waves. If these relationships don't hold, you may have made an error!
 \end{warningbox}

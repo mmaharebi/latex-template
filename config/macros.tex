@@ -8,11 +8,11 @@
 % Scalar: italic (default math mode, explicit wrapper for consistency)
 \newcommand{\scalar}[1]{\mathit{#1}}
 
-% Vector: bold + single underline (using \mathbf and \underline)
-\newcommand{\vect}[1]{\mathbf{\underline{#1}}}
+% Vector: bold + single underline (redefine \vec)
+\renewcommand{\vec}[1]{\underline{\bm{#1}}}
 
-% Matrix: bold + double underline
-\newcommand{\matr}[1]{\mathbf{\underline{\underline{#1}}}}
+% Matrix: bold + double underline with tighter spacing
+\newcommand{\mat}[1]{\underline{\underline{\bm{#1}}}}
 
 % Tensor (order >= 3): bold calligraphic (optional)
 \newcommand{\tensor}[1]{\boldsymbol{\mathcal{#1}}}
@@ -47,35 +47,36 @@
 \newcommand{\eqdef}{\stackrel{\text{def}}{=}}
 
 % Common vectors
-\newcommand{\vzero}{\vect{0}}
-\newcommand{\vi}{\vect{i}}
-\newcommand{\vj}{\vect{j}}
-\newcommand{\vk}{\vect{k}}
+\newcommand{\vzero}{\vec{0}}
+\newcommand{\vi}{\vec{i}}
+\newcommand{\vj}{\vec{j}}
+\newcommand{\vk}{\vec{k}}
 
 % Common matrices
-\newcommand{\mzero}{\matr{0}}
-\newcommand{\midentity}{\matr{I}}
+\newcommand{\mzero}{\mat{0}}
+\newcommand{\midentity}{\mat{I}}
 
 % Unit vector notation
-\newcommand{\uvect}[1]{\hat{\vect{#1}}}
+\newcommand{\uvec}[1]{\hat{\vec{#1}}}
+\newcommand{\uevec}[1]{{\vec{e}}_{#1}}  % Alternative shorthand
 
 % Vector operations
 \newcommand{\vdot}{\bullet}
-\newcommand{\vproj}[2]{\text{proj}_{\vect{#1}}\vect{#2}}
-\newcommand{\vang}[2]{\angle(\vect{#1},\vect{#2})}
+\newcommand{\vproj}[2]{\text{proj}_{\vec{#1}}\vec{#2}}
+\newcommand{\vang}[2]{\angle(\vec{#1},\vec{#2})}
 
 % Unit vectors in Cartesian coordinates
-\newcommand{\xhat}{\hat{\vect{x}}}
-\newcommand{\yhat}{\hat{\vect{y}}}
-\newcommand{\zhat}{\hat{\vect{z}}}
+\newcommand{\xhat}{\hat{\vec{x}}}
+\newcommand{\yhat}{\hat{\vec{y}}}
+\newcommand{\zhat}{\hat{\vec{z}}}
 
 % Unit vectors in cylindrical coordinates
-\newcommand{\rhohat}{\hat{\vect{\rho}}}
-\newcommand{\phihat}{\hat{\vect{\phi}}}
+\newcommand{\rhohat}{\hat{\vec{\rho}}}
+\newcommand{\phihat}{\hat{\vec{\phi}}}
 
 % Unit vectors in spherical coordinates
-\newcommand{\Rhat}{\hat{\vect{R}}}
-\newcommand{\thetahat}{\hat{\vect{\theta}}}
+\newcommand{\Rhat}{\hat{\vec{R}}}
+\newcommand{\thetahat}{\hat{\vec{\theta}}}
 
 % Derivative operators
 \newcommand{\diff}{\mathrm{d}}
@@ -83,10 +84,10 @@
 \newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
 
 % Vector calculus operators
-\newcommand{\vnabla}{\mathbf{\nabla}}
-\DeclareMathOperator{\grad}{grad}
-\DeclareMathOperator{\Div}{div}
-\DeclareMathOperator{\curl}{curl}
+\newcommand{\vnabla}{\bm{\nabla}}
+\newcommand{\grad}{\vnabla}
+\newcommand{\Div}{\vnabla \vdot}
+\newcommand{\curl}{\vnabla \times}
 
 % Matrix operators
 \DeclareMathOperator{\trace}{tr}
