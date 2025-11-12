@@ -1,18 +1,77 @@
 % macros.tex
 % Custom mathematical notation macros for scalars, vectors, matrices, and tensors
+% NOTE: Derivative operators, quantum mechanics, and some utilities now use the
+%       production-ready 'physics' package for better robustness and maintainability
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PHYSICAL-STYLE NOTATION MACROS
+% PHYSICAL-STYLE NOTATION MACROS (Custom - Unique Underline Style)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Scalar: italic (default math mode, explicit wrapper for consistency)
 \newcommand{\scalar}[1]{\mathit{#1}}
 
-% Vector: bold + single underline (redefine \vec)
-\renewcommand{\vec}[1]{\underline{\bm{#1}}}
+% Advanced underline helpers for proper spacing and kerning
+\makeatletter
+% Double overline helper (not used but included for completeness)
+\newcommand{\dbloverline}[1]{\overline{\dbl@overline{#1}}}
+\newcommand{\dbl@overline}[1]{\mathpalette\dbl@@overline{#1}}
+\newcommand{\dbl@@overline}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1\overline{#2}$}%
+  \ht\z@=\dimexpr\ht\z@-2\dbl@adjust{#1}\relax
+  \box\z@
+  \ifx#1\scriptstyle\kern-\scriptspace\else
+  \ifx#1\scriptscriptstyle\kern-\scriptspace\fi\fi
+  \endgroup
+}
 
-% Matrix: bold + double underline with tighter spacing
-\newcommand{\mat}[1]{\underline{\underline{\bm{#1}}}}
+% Double underline helper with proper spacing
+\newcommand{\dblunderline}[1]{\@@underline{\dbl@underline{#1}}}
+\newcommand{\dbl@underline}[1]{\mathpalette\dbl@@underline{#1}}
+\newcommand{\dbl@@underline}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1\@@underline{#2}$}%
+  \dp\z@=\dimexpr\dp\z@-2\dbl@adjust{#1}\relax
+  \box\z@
+  \ifx#1\scriptstyle\kern-\scriptspace\else
+  \ifx#1\scriptscriptstyle\kern-\scriptspace\fi\fi
+  \endgroup
+}
+
+% Adjustment factor for different math styles
+\newcommand{\dbl@adjust}[1]{%
+  \fontdimen8
+  \ifx#1\displaystyle\textfont\else
+  \ifx#1\textstyle\textfont\else
+  \ifx#1\scriptstyle\scriptfont\else
+  \scriptscriptfont\fi\fi\fi 3
+}
+
+% Kerning correction helper
+\newcommand{\mathcorr}[1]{\mathpalette\math@corr{#1}}
+\newcommand{\math@corr}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1#2$}\sbox2{$\m@th#1#2_{}\kern-\scriptspace$}%
+  \kern\dimexpr\wd\z@-\wd\tw@\relax
+  \endgroup
+}
+\makeatother
+
+% Vector: bold + single underline with proper spacing and kerning
+\renewcommand{\vec}[1]{{\bm{%
+  \mspace{0.5mu}%
+  \underline{\mspace{-0.5mu}#1_{}\kern-\scriptspace\mspace{-0.5mu}}%
+  \mspace{0.5mu}%
+  \mathcorr{#1}%
+}}}
+
+% Matrix: bold + double underline with proper spacing and kerning
+\newcommand{\mat}[1]{{\bm{%
+  \mspace{0.5mu}%
+  \dblunderline{\mspace{-0.5mu}#1_{}\kern-\scriptspace\mspace{-0.5mu}}%
+  \mspace{0.5mu}%
+  \mathcorr{#1}%
+}}}
 
 % Tensor (order >= 3): bold calligraphic (optional)
 \newcommand{\tensor}[1]{\boldsymbol{\mathcal{#1}}}
@@ -21,30 +80,44 @@
 % CONVENIENCE MACROS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Differential and special constants
+% Differential (physics package provides \dd, but we keep \dif for compatibility)
 \newcommand{\dif}{\mathrm{d}}
 \newcommand{\e}{\mathrm{e}}
 \newcommand{\imag}{\mathrm{j}}  % Imaginary unit (engineering convention)
 
-% Probability and norms
+% Probability
 \newcommand{\Prob}[1]{\mathrm{P}\left(#1\right)}
 \newcommand{\given}{\,|\,}
-\newcommand{\abs}[1]{\left|#1\right|}
-\newcommand{\norm}[1]{\left\|#1\right\|}
 
-% Partial derivatives
-\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
-\newcommand{\pdc}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
-\newcommand{\pdt}[1]{\frac{\partial #1}{\partial t}}
+% Note: \abs{} and \norm{} are now provided by physics package
+% If you need custom sizing behavior, uncomment these:
+% \renewcommand{\abs}[1]{\left|#1\right|}
+% \renewcommand{\norm}[1]{\left\|#1\right\|}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DERIVATIVES (Using physics package)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The physics package provides:
+% - \dv{f}{x}       : df/dx (total derivative)
+% - \dv[n]{f}{x}    : d^n f/dx^n (nth derivative)
+% - \pdv{f}{x}      : ∂f/∂x (partial derivative)
+% - \pdv[n]{f}{x}   : ∂^n f/∂x^n (nth partial)
+% - \pdv{f}{x}{y}   : ∂²f/∂x∂y (mixed partial)
+
+% Partial time derivative shorthand
 \newcommand{\partialt}{\partial_t}
 
-% Total derivatives
-\newcommand{\td}[2]{\frac{\dif #1}{\dif #2}}
-\newcommand{\tdd}[2]{\frac{\dif^2 #1}{\dif^2 #2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SYMBOLIC OPERATORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Definition symbol
 \newcommand{\eqdef}{\stackrel{\text{def}}{=}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COMMON VECTORS AND MATRICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Common vectors
 \newcommand{\vzero}{\vec{0}}
@@ -56,14 +129,13 @@
 \newcommand{\mzero}{\mat{0}}
 \newcommand{\midentity}{\mat{I}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UNIT VECTORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Unit vector notation
 \newcommand{\uvec}[1]{\hat{\vec{#1}}}
 \newcommand{\uevec}[1]{{\vec{e}}_{#1}}  % Alternative shorthand
-
-% Vector operations
-\newcommand{\vdot}{\bullet}
-\newcommand{\vproj}[2]{\text{proj}_{\vec{#1}}\vec{#2}}
-\newcommand{\vang}[2]{\angle(\vec{#1},\vec{#2})}
 
 % Unit vectors in Cartesian coordinates
 \newcommand{\xhat}{\hat{\vec{x}}}
@@ -78,36 +150,57 @@
 \newcommand{\Rhat}{\hat{\vec{R}}}
 \newcommand{\thetahat}{\hat{\vec{\theta}}}
 
-% Derivative operators
-\newcommand{\diff}{\mathrm{d}}
-\newcommand{\Diff}{\mathrm{D}}
-\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
-
-% Vector calculus operators
-\newcommand{\vnabla}{\bm{\nabla}}
-\newcommand{\grad}{\vnabla}
-\newcommand{\Div}{\vnabla \vdot}
-\newcommand{\curl}{\vnabla \times}
-
-% Matrix operators
-\DeclareMathOperator{\trace}{tr}
-\DeclareMathOperator{\rank}{rank}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% QUANTUM MECHANICS NOTATION
+% VECTOR OPERATIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Bra-ket notation (Dirac notation)
-\newcommand{\ket}[1]{\left| #1 \right\rangle}
-\newcommand{\bra}[1]{\left\langle #1 \right|}
-\newcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
-\newcommand{\ketbra}[2]{\left| #1 \right\rangle\left\langle #2 \right|}
-\newcommand{\expectation}[1]{\left\langle #1 \right\rangle}
+% Note: physics package defines \vdot as derivative, so we use \vecdot for vector dot product
+\newcommand{\vecdot}{\bullet}
+\newcommand{\vproj}[2]{\text{proj}_{\vec{#1}}\vec{#2}}
+\newcommand{\vang}[2]{\angle(\vec{#1},\vec{#2})}
 
-% Common quantum operators (with hat)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% VECTOR CALCULUS (Now using physics package!)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The physics package provides:
+% - \grad    : ∇ (gradient)
+% - \div     : ∇· (divergence)
+% - \curl    : ∇× (curl)
+% - \laplacian : ∇² (Laplacian)
+
+% Note: physics already defines \vnabla, we can just use it directly
+
+% Legacy aliases (optional - uncomment if you prefer old names):
+% \renewcommand{\Div}{\div}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MATRIX OPERATORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note: physics package provides \tr for trace and \rank for rank
+% No need to redefine them
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% QUANTUM MECHANICS NOTATION (Now using physics package!)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The physics package provides robust bra-ket notation:
+% - \ket{a}          : |a⟩
+% - \bra{b}          : ⟨b|
+% - \braket{a}{b}    : ⟨a|b⟩
+% - \ketbra{a}{b}    : |a⟩⟨b|
+% - \expval{A}       : ⟨A⟩ (expectation value)
+% - \expval{A}{\psi} : ⟨ψ|A|ψ⟩
+% - \mel{a}{B}{b}    : ⟨a|B|b⟩ (matrix element)
+% - \comm{A}{B}      : [A,B] (commutator)
+% - \acomm{A}{B}     : {A,B} (anticommutator)
+
+% Legacy alias for expectation (optional):
+% \newcommand{\expectation}[1]{\expval{#1}}
+
+% Operator hat notation
 \newcommand{\hop}[1]{\hat{#1}}
-\newcommand{\comm}[2]{\left[\hop{#1}, \hop{#2}\right]}
-\newcommand{\acomm}[2]{\left\{\hop{#1}, \hop{#2}\right\}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % COMPLEX ANALYSIS NOTATION
@@ -123,3 +216,34 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LEGACY/DEPRECATED COMMANDS (Commented out - now using physics package)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% These commands are now provided by the physics package.
+% Uncomment if you need backward compatibility with old documents:
+
+% % Differential operators (replaced by physics \dv, \pdv)
+% \newcommand{\diff}{\mathrm{d}}
+% \newcommand{\Diff}{\mathrm{D}}
+% \newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+% % Absolute value and norm (replaced by physics \abs, \norm)
+% % Note: physics package provides automatic sizing
+% \renewcommand{\abs}[1]{\left|#1\right|}
+% \renewcommand{\norm}[1]{\left\|#1\right\|}
+
+% % Bra-ket notation (replaced by physics package)
+% \renewcommand{\ket}[1]{\left| #1 \right\rangle}
+% \renewcommand{\bra}[1]{\left\langle #1 \right|}
+% \renewcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+% \renewcommand{\ketbra}[2]{\left| #1 \right\rangle\left\langle #2 \right|}
+% \renewcommand{\expectation}[1]{\left\langle #1 \right\rangle}
+
+% % Commutators (replaced by physics \comm, \acomm)
+% \renewcommand{\comm}[2]{\left[\hop{#1}, \hop{#2}\right]}
+% \renewcommand{\acomm}[2]{\left\{\hop{#1}, \hop{#2}\right\}}
+
+% % Trace operator (replaced by physics \tr)
+% \DeclareMathOperator{\trace}{tr}

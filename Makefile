@@ -29,6 +29,8 @@ $(BUILD_DIR)/$(MAIN).pdf: $(MAIN).tex
 	@mkdir -p $(BUILD_DIR)
 	@echo "Compiling LaTeX document (pass 1/3)..."
 	@pdflatex -interaction=nonstopmode -output-directory=$(BUILD_DIR) $(MAIN).tex > $(BUILD_DIR)/build.log 2>&1 || (echo "❌ Error in pass 1! Check $(BUILD_DIR)/build.log for details"; exit 1)
+	@echo "Processing bibliography..."
+	@bibtex $(BUILD_DIR)/$(MAIN) >> $(BUILD_DIR)/build.log 2>&1 || true
 	@echo "Processing glossaries and index..."
 	@makeglossaries -d $(BUILD_DIR) $(MAIN) >> $(BUILD_DIR)/build.log 2>&1 || true
 	@echo "Compiling LaTeX document (pass 2/3)..."

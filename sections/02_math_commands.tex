@@ -11,41 +11,41 @@ The template includes many mathematical shortcuts for common operations.
 
 First-order partial derivative:
 \[
-\pd{f}{x}
+\pdv{f}{x}
 \]
 
 Second-order partial derivative:
 \[
-\pdd{f}{x}
+\pdv[2]{f}{x}
 \]
 
 Mixed partial derivative:
 \[
-\pdc{f}{x}{y}
+\pdv{f}{x}{y}
 \]
 
 Partial time derivative (common in physics):
 \[
-\pdt{u}
+\pdv{u}{t}
 \]
 
 \subsubsection{Total Derivatives}
 
 First derivative:
 \[
-\td{s}{t}
+\dv{s}{t}
 \]
 
 Second derivative:
 \[
-\tdd{x}{t} = \ddot{x}
+\dv[2]{x}{t} = \ddot{x}
 \]
 
 \subsection{Vector Calculus Operators}
 
 \subsubsection{Gradient}
 \[
-\grad f = \pd{f}{x}\xhat + \pd{f}{y}\yhat + \pd{f}{z}\zhat
+\grad f = \pdv{f}{x}\xhat + \pdv{f}{y}\yhat + \pdv{f}{z}\zhat
 \]
 
 Example with electric potential:
@@ -55,12 +55,12 @@ Example with electric potential:
 
 \subsubsection{Divergence}
 \[
-\Div \vec{F} = \pd{F_x}{x} + \pd{F_y}{y} + \pd{F_z}{z}
+\div \vec{F} = \pdv{F_x}{x} + \pdv{F_y}{y} + \pdv{F_z}{z}
 \]
 
 Gauss's law:
 \[
-\Div \vec{E} = \frac{\rho}{\epsilon_0}
+\div \vec{E} = \frac{\rho}{\epsilon_0}
 \]
 
 \subsubsection{Curl}
@@ -70,25 +70,25 @@ Gauss's law:
 
 Faraday's law:
 \[
-\curl \vec{E} = -\pdt{\vec{B}}
+\curl \vec{E} = -\pdv{\vec{B}}{t}
 \]
 
 \subsection{Vector Operations}
 
 \subsubsection{Dot Product}
 \[
-\vec{a} \vdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta
+\vec{a} \vecdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta
 \]
 
 \subsubsection{Vector Projection}
 Projection of $\vec{b}$ onto $\vec{a}$:
 \[
-\vproj{a}{b} = \frac{\vec{a} \vdot \vec{b}}{|\vec{a}|^2}\vec{a}
+\vproj{a}{b} = \frac{\vec{a} \vecdot \vec{b}}{|\vec{a}|^2}\vec{a}
 \]
 
 \subsubsection{Angle Between Vectors}
 \[
-\theta = \vang{a}{b} = \arccos\left(\frac{\vec{a} \vdot \vec{b}}{|\vec{a}||\vec{b}|}\right)
+\theta = \vang{a}{b} = \arccos\left(\frac{\vec{a} \vecdot \vec{b}}{|\vec{a}||\vec{b}|}\right)
 \]
 
 \subsection{Matrix Operations}
