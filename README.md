@@ -1,372 +1,741 @@
-# Physical-Style Mathematical Notation Template# Physical-Style Mathematical Notation for LaTeX
+# Physical-Style Mathematical Notation for LaTeX# Physical-Style Mathematical Notation Template# Physical-Style Mathematical Notation for LaTeX
 
 
 
-A comprehensive, production-ready LaTeX template for technical documents requiring clear and consistent mathematical notation. Ideal for physics, engineering, mathematics, and scientific writing.A reusable LaTeX template providing consistent, physics-inspired typographic conventions for scalars, vectors, matrices, and tensors in scientific manuscripts and technical reports.
+A reusable LaTeX template providing consistent, physics-inspired typographic conventions for scalars, vectors, matrices, and tensors in scientific manuscripts and technical reports.
 
 
 
-## Author---
+---A comprehensive, production-ready LaTeX template for technical documents requiring clear and consistent mathematical notation. Ideal for physics, engineering, mathematics, and scientific writing.A reusable LaTeX template providing consistent, physics-inspired typographic conventions for scalars, vectors, matrices, and tensors in scientific manuscripts and technical reports.
 
 
 
-**Mohammadmahdi Maharebi**## Table of Contents
+## Table of Contents
 
-- Email: mmaharebi@gmail.com
 
-- GitHub: @mmaharebi- [Purpose](#purpose)
+
+- [Purpose](#purpose)## Author---
 
 - [Motivation](#motivation)
 
----- [LaTeX Macros](#latex-macros)
+- [Quick Start](#quick-start)
 
-- [Notation Conventions](#notation-conventions)
+- [LaTeX Macros](#latex-macros)
 
-## 📋 Table of Contents- [Symbol Reference Table](#symbol-reference-table)
+- [Notation Conventions](#notation-conventions)**Mohammadmahdi Maharebi**## Table of Contents
 
-- [Usage Examples](#usage-examples)
+- [Symbol Reference Table](#symbol-reference-table)
 
-1. [Overview](#overview)- [How to Use This Template](#how-to-use-this-template)
+- [Usage Examples](#usage-examples)- Email: mmaharebi@gmail.com
 
-2. [Features](#features)- [Best Practices](#best-practices)
+- [Project Structure](#project-structure)
 
-3. [Quick Start](#quick-start)- [Contributing](#contributing)
+- [How to Use This Template](#how-to-use-this-template)- GitHub: @mmaharebi- [Purpose](#purpose)
 
-4. [Project Structure](#project-structure)- [License](#license)
+- [Compilation](#compilation)
 
-5. [Notation System](#notation-system)
+- [Best Practices](#best-practices)- [Motivation](#motivation)
 
-6. [Using Colored Theorem Boxes](#using-colored-theorem-boxes)---
+- [Contributing](#contributing)
 
-7. [Advanced Features](#advanced-features)
-
-8. [Compilation](#compilation)## Purpose
-
-9. [Customization](#customization)
-
-10. [Examples](#examples)This template establishes a **unified typographic system** for mathematical objects commonly used in physics, engineering, and applied mathematics. By adopting visual distinctions based on tensor order (scalars, vectors, matrices, higher-order tensors), readers can immediately identify the nature of each quantity, reducing ambiguity and cognitive load.
+- [License](#license)---- [LaTeX Macros](#latex-macros)
 
 
 
----**Key features:**
+---- [Notation Conventions](#notation-conventions)
+
+
+
+## Purpose## 📋 Table of Contents- [Symbol Reference Table](#symbol-reference-table)
+
+
+
+This template establishes a **unified typographic system** for mathematical objects commonly used in physics, engineering, and applied mathematics. By adopting visual distinctions based on tensor order (scalars, vectors, matrices, higher-order tensors), readers can immediately identify the nature of each quantity, reducing ambiguity and cognitive load.- [Usage Examples](#usage-examples)
+
+
+
+**Key features:**1. [Overview](#overview)- [How to Use This Template](#how-to-use-this-template)
 
 - **Scalars** are italic (standard mathematical notation)
 
-## Overview- **Vectors** are bold and single-underlined
+- **Vectors** are bold and single-underlined2. [Features](#features)- [Best Practices](#best-practices)
 
 - **Matrices** are bold and double-underlined
 
-This template implements a systematic physical-style notation system:- **Tensors (order ≥ 3)** use bold calligraphic or explicit index notation
+- **Tensors (order ≥ 3)** use bold calligraphic or explicit index notation3. [Quick Start](#quick-start)- [Contributing](#contributing)
 
 
+
+This convention is particularly valuable in disciplines where vectors and matrices appear frequently (e.g., mechanics, electromagnetism, quantum theory, robotics, machine learning).4. [Project Structure](#project-structure)- [License](#license)
+
+
+
+---5. [Notation System](#notation-system)
+
+
+
+## Motivation6. [Using Colored Theorem Boxes](#using-colored-theorem-boxes)---
+
+
+
+### Why adopt a physical-style notation?7. [Advanced Features](#advanced-features)
+
+
+
+1. **Visual clarity:** In equations mixing scalars, vectors, and matrices (e.g., $\mat{A}\vec{x} = \scalar{\lambda}\vec{x}$), each object's type is instantly recognizable.8. [Compilation](#compilation)## Purpose
+
+
+
+2. **Consistency across documents:** Using predefined macros ensures uniform appearance throughout long manuscripts or multi-author projects.9. [Customization](#customization)
+
+
+
+3. **Flexibility:** Changing the entire notation style (e.g., switching from underlines to bold-only) requires modifying only a few lines in `config/macros.tex`.10. [Examples](#examples)This template establishes a **unified typographic system** for mathematical objects commonly used in physics, engineering, and applied mathematics. By adopting visual distinctions based on tensor order (scalars, vectors, matrices, higher-order tensors), readers can immediately identify the nature of each quantity, reducing ambiguity and cognitive load.
+
+
+
+4. **Professional quality:** Clean separation of content and styling improves readability and aesthetics.
+
+
+
+------**Key features:**
+
+
+
+## Quick Start- **Scalars** are italic (standard mathematical notation)
+
+
+
+### 1. Clone or Download## Overview- **Vectors** are bold and single-underlined
+
+
+
+```bash- **Matrices** are bold and double-underlined
+
+git clone https://github.com/mmaharebi/latex-notation-template.git
+
+cd latex-notation-templateThis template implements a systematic physical-style notation system:- **Tensors (order ≥ 3)** use bold calligraphic or explicit index notation
+
+```
+
+
+
+### 2. Compile
 
 | Type | Style | Command | Example |This convention is particularly valuable in disciplines where vectors and matrices appear frequently (e.g., mechanics, electromagnetism, quantum theory, robotics, machine learning).
 
-|------|-------|---------|---------|
-
-| **Scalar** | Italic | `\scalar{x}` | *x* |---
-
-| **Vector** | Bold + underline | `\vec{v}` | **v̲** |
-
-| **Matrix** | Bold + double underline | `\mat{A}` | **A̲̲** |## Motivation
-
-| **Tensor** | Bold calligraphic | `\tensor{T}` | **𝓣** |
-
-### Why adopt a physical-style notation?
-
----
-
-1. **Visual clarity:** In equations mixing scalars, vectors, and matrices (e.g., $\matrix{A}\vector{x} = \scalar{\lambda}\vector{x}$), each object's type is instantly recognizable.
-
-## Features2. **Consistency across documents:** Using predefined macros ensures uniform rendering throughout multi-author projects or multi-document dissertations.
-
-3. **Pedagogical value:** Students and reviewers benefit from explicit visual cues that distinguish a vector field $\vector{E}$ from a scalar energy $\scalar{E}$.
-
-### Core Features4. **Alignment with established practice:** Many physics and engineering textbooks employ similar conventions (bold for vectors, double-underline or hat for matrices).
-
-✅ **Consistent Notation System** - Clear visual distinction between mathematical objects  
-
-✅ **Colored Theorem Boxes** - Professional tcolorbox environments (theorem, definition, note, etc.)  ### When to use this template
-
-✅ **Glossary & Acronyms** - Built-in support with the `glossaries` package  
-
-✅ **TikZ Diagrams** - Enhanced figures with improved scales and styling  - Theses and dissertations in physics, mechanical/electrical engineering, applied math
-
-✅ **SI Units** - `siunitx` package for proper unit formatting  - Research papers in continuum mechanics, control theory, robotics, quantum information
-
-✅ **Bibliography Support** - BibTeX ready with `references.bib`  - Technical reports requiring clear distinction between vector quantities and scalar parameters
-
-✅ **Modular Structure** - Organized config files for easy customization- Educational materials where pedagogical clarity is paramount
-
-
-
-### Enhanced Math Commands---
-
-- **Derivatives**: `\pd{f}{x}`, `\pdd{f}{x}`, `\pdc{f}{x}{y}`, `\td{f}{x}`
-
-- **Operators**: `\grad`, `\Div`, `\curl`, `\vnabla`, `\trace`, `\rank`## LaTeX Macros
-
-- **Utilities**: `\abs{x}`, `\norm{x}`, `\Prob{A}`, `\eqdef`
-
-- **Unit Vectors**: `\xhat`, `\yhat`, `\zhat`, `\rhohat`, `\phihat`, `\Rhat`, `\thetahat`Add the following macros to your LaTeX document preamble (before `\begin{document}`):
-
-- **Vector Operations**: `\vdot`, `\vproj{a}{b}`, `\vang{a}{b}`
-
-- **Quantum Notation**: `\ket{ψ}`, `\bra{ψ}`, `\braket{ψ}{φ}`, `\hop{H}`, `\comm{A}{B}````latex
-
-% Scalar: italic (default math mode, explicit wrapper for consistency)
-
----\newcommand{\scalar}[1]{\mathit{#1}}
-
-
-
-## Quick Start% Vector: bold + single underline
-
-\newcommand{\vect}[1]{\mathbf{\underline{#1}}}
-
-### 1. Clone or Download
-
-```bash% Matrix: bold + double underline
-
-git clone https://github.com/mmaharebi/latex-notation-template.git\newcommand{\matr}[1]{\mathbf{\underline{\underline{#1}}}}
-
-cd latex-notation-template
-
-```% Tensor (order >= 3): bold calligraphic (optional)
-
-\newcommand{\tensor}[1]{\boldsymbol{\mathcal{#1}}}
-
-### 2. Compile```
-
 ```bash
 
-make pdf          # Recommended**Note:** We use `\vect` and `\matr` instead of `\vector` and `\matrix` to avoid conflicts with the `amsmath` package. Some journals discourage underlining; check your target venue's style guide before submission.
+make pdf          # Recommended|------|-------|---------|---------|
 
 # OR
 
-pdflatex main.tex---
+pdflatex main.tex| **Scalar** | Italic | `\scalar{x}` | *x* |---
 
 pdflatex main.tex # Run twice for references
 
-```## Notation Conventions
+```| **Vector** | Bold + underline | `\vect{v}` | **v̲** |
 
 
 
-### 3. Customize| Type | Macro | Example | Rendering Convention |
+### 3. Customize| **Matrix** | Bold + double underline | `\mat{A}` | **A̲̲** |## Motivation
 
-- Edit `config/metadata.tex` - Set your name, title, PDF metadata|------|-------|---------|---------------------|
 
-- Edit `config/glossary.tex` - Add your glossary entries and acronyms| **Scalar** | `\scalar{a}` | `\scalar{\alpha}`, `\scalar{E}` | Italic (single real or complex number) |
 
-- Edit `references.bib` - Add your bibliography entries| **Vector** | `\vec{v}` | `\vec{E}`, `\vec{F}`, `\vec{v}` | **Bold + single underline** (column vector) |
+- Edit `config/metadata.tex` - Set your name, title, PDF metadata| **Tensor** | Bold calligraphic | `\tensor{T}` | **𝓣** |
 
-- Modify `sections/` - Replace example content with your own| **Matrix** | `\mat{A}` | `\mat{M}`, `\mat{K}` | **Bold + double underline** (2D array) |
+- Edit `config/glossary.tex` - Add your glossary entries and acronyms
 
-| **Tensor (≥3)** | `\tensor{T}` | `\tensor{C}`, or $C_{ijkl}$ | **Bold calligraphic** or explicit indices |
+- Edit `references.bib` - Add your bibliography entries### Why adopt a physical-style notation?
 
----| **Unit vector** | `\hat{\vec{e}}_i` | `\hat{\vec{x}}` | Hat over underlined bold vector |
+- Create your content in `chapters/` directory
 
-| **Zero** | `\vec{0}`, `\mat{0}` | — | Underlined bold zero |
+- Add figures to `figures/` directory---
 
-## Project Structure| **Identity** | `\mat{I}_n` | — | Double-underlined bold I |
 
 
+---1. **Visual clarity:** In equations mixing scalars, vectors, and matrices (e.g., $\matrix{A}\vector{x} = \scalar{\lambda}\vector{x}$), each object's type is instantly recognizable.
 
-```**Operators and special functions** (det, tr, rank, div, grad, etc.) should be typeset in upright roman using `\det`, `\operatorname{tr}`, `\nabla`, etc.
 
-.
 
-├── main.tex                    # Main document file---
+## LaTeX Macros## Features2. **Consistency across documents:** Using predefined macros ensures uniform rendering throughout multi-author projects or multi-document dissertations.
 
-├── references.bib              # Bibliography database
 
-├── Makefile                    # Build automation## Symbol Reference Table
 
-│
+The core notation macros are defined in `config/macros.tex`:3. **Pedagogical value:** Students and reviewers benefit from explicit visual cues that distinguish a vector field $\vector{E}$ from a scalar energy $\scalar{E}$.
 
-├── config/                     # Configuration files| Symbol | Name | Notation | Description / Example |
 
-│   ├── packages.tex           # Package imports|--------|------|----------|----------------------|
 
-│   ├── macros.tex             # Custom notation macros| `\scalar{a}` | Scalar | italic, $\scalar{a}\in\mathbb{R}$ | Single numeric value |
+```latex### Core Features4. **Alignment with established practice:** Many physics and engineering textbooks employ similar conventions (bold for vectors, double-underline or hat for matrices).
 
-│   ├── theorems.tex           # Theorem environments| `\vec{v}` | Vector | bold + underline, $\vec{v}\in\mathbb{R}^n$ | Column vector, e.g. $\vec{v}=[v_1,\dots,v_n]^\top$ |
+% Scalar: italic (default math mode)
 
-│   ├── metadata.tex           # Author, title, PDF metadata| `\mat{A}` | Matrix | bold + double underline, $\mat{A}\in\mathbb{R}^{m\times n}$ | Linear map; entries $A_{ij}$ |
+\newcommand{\scalar}[1]{\mathit{#1}}✅ **Consistent Notation System** - Clear visual distinction between mathematical objects  
 
-│   └── glossary.tex           # Glossary and acronym definitions| `\mat{A}^\top` | Transpose | superscript $^\top$ | Rows ↔ columns |
 
-│| `\mat{A}^*` or `\mat{A}^\dagger` | Conjugate transpose | Hermitian conjugate | $(\mat{A}^*)_{ij}=\overline{A_{ji}}$ |
 
-├── sections/                   # Content sections (modify these)| `\langle\vec{u},\vec{v}\rangle` | Inner product | angle brackets | $\langle\vec{u},\vec{v}\rangle=\vec{u}^\top\vec{v}$ (real) |
+% Vector: bold + single underline✅ **Colored Theorem Boxes** - Professional tcolorbox environments (theorem, definition, note, etc.)  ### When to use this template
 
-│   ├── introduction.tex| `\|\vec{v}\|` | Norm | double bars | Euclidean norm $\|\vec{v}\|_2=\sqrt{\langle\vec{v},\vec{v}\rangle}$ |
+\renewcommand{\vec}[1]{\underline{\bm{#1}}}
 
-│   ├── basic_notation.tex| `\vec{u}\otimes\vec{v}` | Tensor product | $\otimes$ | Rank-1 tensor / outer product |
+✅ **Glossary & Acronyms** - Built-in support with the `glossaries` package  
 
-│   ├── linear_algebra.tex| `\vec{u}\vec{v}^\top` | Outer product | vector × transpose | Matrix with entries $u_i v_j$ |
+% Matrix: bold + double underline
 
-│   ├── physics.tex| `\mat{I}_n` | Identity matrix | $n\times n$ | $\mat{I}_n \vec{x} = \vec{x}$ |
+\newcommand{\mat}[1]{\underline{\underline{\bm{#1}}}}✅ **TikZ Diagrams** - Enhanced figures with improved scales and styling  - Theses and dissertations in physics, mechanical/electrical engineering, applied math
 
-│   ├── engineering.tex| `\vec{0}`, `\mat{0}` | Zero vector/matrix | | All entries zero |
 
-│   ├── quantum_mechanics.tex| `\det(\mat{A})` | Determinant | scalar | Volume scaling factor |
 
-│   ├── applications.tex| `\operatorname{tr}(\mat{A})` | Trace | scalar | Sum of diagonal entries |
+% Tensor (order >= 3): bold calligraphic (optional)✅ **SI Units** - `siunitx` package for proper unit formatting  - Research papers in continuum mechanics, control theory, robotics, quantum information
 
-│   ├── conclusion.tex| `\operatorname{rank}(\mat{A})` | Rank | integer | Dimension of column space |
+\newcommand{\tensor}[1]{\boldsymbol{\mathcal{#1}}}
 
-│   └── appendix.tex| $(\scalar{\lambda},\vec{x})$ | Eigenpair | $\mat{A}\vec{x}=\scalar{\lambda}\vec{x}$ | Eigenvalue $\scalar{\lambda}$, eigenvector $\vec{x}\neq\vec{0}$ |
+```✅ **Bibliography Support** - BibTeX ready with `references.bib`  - Technical reports requiring clear distinction between vector quantities and scalar parameters
 
-│| $\{\vec{e}_i\}$ | Canonical basis | standard basis | $\vec{e}_i$ has 1 at position $i$, 0 elsewhere |
 
-├── figures/                    # TikZ diagrams
 
-│   ├── least_squares_projection.tex---
+**Note:** We use `\vec` and `\mat` as short, convenient command names. The template redefines the standard `\vec` command to match the physical-style notation.✅ **Modular Structure** - Organized config files for easy customization- Educational materials where pedagogical clarity is paramount
 
-│   ├── rigid_body.tex
 
-│   ├── waveguide_geometry.tex## Usage Examples
-
-│   ├── te10_mode.tex
-
-│   └── metasurface_reflection.tex### Example 1: Linear system
-
-│```latex
-
-└── build/                      # Compiled output (auto-generated)Consider the linear system
-
-```\[
-
-  \mat{A}\vec{x} = \vec{b},
-
----\]
-
-where $\mat{A}\in\mathbb{R}^{n\times n}$ is a square matrix, 
-
-## Notation System$\vec{x}\in\mathbb{R}^n$ is the unknown vector, 
-
-and $\vec{b}\in\mathbb{R}^n$ is the right-hand side.
-
-### Basic Usage```
-
-
-
-```latex### Example 2: Eigenvalue problem
-
-% Scalars (italic by default)```latex
-
-Let $\scalar{x} = 5$ and $\scalar{y} = 3$.The eigenvalue problem for $\mat{A}$ is
-
-\[
-
-% Vectors (bold + underline)  \mat{A}\vec{x} = \scalar{\lambda}\vec{x},
-
-The velocity vector is $\vec{v} = \vec{v}_0 + \vec{a}t$.\]
-
-where $\scalar{\lambda}\in\mathbb{C}$ is the eigenvalue 
-
-% Matrices (bold + double underline)and $\vec{x}\neq\vec{0}$ is the corresponding eigenvector.
-
-The transformation matrix $\mat{A}$ satisfies $\mat{A}\vec{x} = \vec{b}$.```
-
-
-
-% Tensors (bold calligraphic)### Example 3: Physics (Newton's second law)
-
-The stress tensor $\tensor{σ}$ relates stress to strain.```latex
-
-```Newton's second law in vector form:
-
-\[
-
-### Common Patterns  \vec{F} = \scalar{m}\vec{a},
-
-\]
-
-```latexwhere $\vec{F}$ is the net force, $\scalar{m}$ is the scalar mass, 
-
-% Unit vectorsand $\vec{a}$ is the acceleration vector.
-
-$\xhat, \yhat, \zhat$                    % Cartesian```
-
-$\rhohat, \phihat, \zhat$               % Cylindrical  
-
-$\Rhat, \thetahat, \phihat$             % Spherical### Example 4: Inline text
-
-```latex
-
-% Vector operationsThe electric field $\vec{E}$ at position $\vec{r}$ 
-
-$\vec{a} \vdot \vec{b}$               % Dot productis computed from the potential $\scalar{\phi}$ as 
-
-$\vproj{a}{b}$                          % Projection of b onto a$\vec{E} = -\nabla\scalar{\phi}$.
-
-$\vang{a}{b}$                           % Angle between vectors```
-
-
-
-% Derivatives---
-
-$\pd{f}{x}$                             % ∂f/∂x
-
-$\pdd{f}{x}$                            % ∂²f/∂x²## How to Use This Template
-
-$\pdc{f}{x}{y}$                         % ∂²f/∂x∂y
-
-$\td{s}{t}$                             % ds/dt### Option 1: Use the Complete LaTeX Template
-
-
-
-% OperatorsThis repository includes a ready-to-use LaTeX template with comprehensive examples:
-
-$\vnabla \times \vec{E}$               % Curl
-
-$\vnabla \cdot \vec{B}$                % Divergence**Files included:**
-
-$\grad f$, $\Div \vec{F}$, $\curl \vec{A}$- `main.tex` - Complete LaTeX document with examples from physics, linear algebra, engineering
-
-```- `Makefile` - Build automation with multiple targets
-
-- `.gitignore` - Excludes LaTeX build artifacts
 
 ---
 
-**Quick start:**
 
-## Using Colored Theorem Boxes```bash
 
-# Clone or download this repository
-
-### Numbered Environments (tcolorbox style)cd report
+## Notation Conventions### Enhanced Math Commands---
 
 
 
-For fancy colored boxes with numbering, use the tcolorbox syntax:# Compile the template
+| Type | Macro | Example | Rendering Convention |- **Derivatives**: `\pd{f}{x}`, `\pdd{f}{x}`, `\pdc{f}{x}{y}`, `\td{f}{x}`
 
-make pdf
+|------|-------|---------|---------------------|
+
+| **Scalar** | `\scalar{a}` | `\scalar{\alpha}`, `\scalar{E}` | Italic (single real or complex number) |- **Operators**: `\grad`, `\Div`, `\curl`, `\vnabla`, `\trace`, `\rank`## LaTeX Macros
+
+| **Vector** | `\vec{v}` | `\vec{E}`, `\vec{F}`, `\vec{v}` | **Bold + single underline** (column vector) |
+
+| **Matrix** | `\mat{A}` | `\mat{M}`, `\mat{K}` | **Bold + double underline** (2D array) |- **Utilities**: `\abs{x}`, `\norm{x}`, `\Prob{A}`, `\eqdef`
+
+| **Tensor** | `\tensor{T}` | `\tensor{R}`, `\tensor{C}` | **Bold calligraphic** (order ≥ 3) |
+
+- **Unit Vectors**: `\xhat`, `\yhat`, `\zhat`, `\rhohat`, `\phihat`, `\Rhat`, `\thetahat`Add the following macros to your LaTeX document preamble (before `\begin{document}`):
+
+### Special Symbols
+
+- **Vector Operations**: `\vdot`, `\vproj{a}{b}`, `\vang{a}{b}`
+
+| Symbol | Macro | Usage | Notes |
+
+|--------|-------|-------|-------|- **Quantum Notation**: `\ket{ψ}`, `\bra{ψ}`, `\braket{ψ}{φ}`, `\hop{H}`, `\comm{A}{B}````latex
+
+| **Zero** | `\vec{0}`, `\mat{0}` | — | Underlined bold zero |
+
+| **Unit vector** | `\uvec{n}` | `\uvec{x}`, `\uvec{r}` | Hat + bold underline |% Scalar: italic (default math mode, explicit wrapper for consistency)
+
+| **Identity** | `\mat{I}_n` | — | Double-underlined bold I |
+
+---\newcommand{\scalar}[1]{\mathit{#1}}
+
+---
+
+
+
+## Symbol Reference Table
+
+## Quick Start% Vector: bold + single underline
+
+### Scalar, Vector, Matrix, Tensor
+
+\newcommand{\vect}[1]{\mathbf{\underline{#1}}}
+
+| Macro | Description | Rendering | Usage |
+
+|-------|-------------|-----------|-------|### 1. Clone or Download
+
+| `\scalar{x}` | Scalar | italic, $\scalar{x}\in\mathbb{R}$ or $\mathbb{C}$ | Physical quantity, coordinate |
+
+| `\vec{v}` | Vector | bold + underline, $\vec{v}\in\mathbb{R}^n$ | Position, velocity, force |```bash% Matrix: bold + double underline
+
+| `\mat{A}` | Matrix | bold + double underline, $\mat{A}\in\mathbb{R}^{m\times n}$ | Linear map; entries $A_{ij}$ |
+
+| `\vec{x}^\top` | Transpose | superscript $^\top$ | Row vector |git clone https://github.com/mmaharebi/latex-notation-template.git\newcommand{\matr}[1]{\mathbf{\underline{\underline{#1}}}}
+
+| `\mat{A}^\top` | Transpose | superscript $^\top$ | Rows ↔ columns |
+
+| `\vec{x}^*` | Conjugate | superscript $^*$ | Complex conjugate |cd latex-notation-template
+
+| `\mat{A}^*` or `\mat{A}^\dagger` | Conjugate transpose | Hermitian conjugate | $(\mat{A}^*)_{ij}=\overline{A_{ji}}$ |
+
+```% Tensor (order >= 3): bold calligraphic (optional)
+
+### Common Constructs
+
+\newcommand{\tensor}[1]{\boldsymbol{\mathcal{#1}}}
+
+| Macro | Description | Size | Usage |
+
+|-------|-------------|------|-------|### 2. Compile```
+
+| `\mat{I}_n` | Identity matrix | $n\times n$ | $\mat{I}_n \vec{x} = \vec{x}$ |
+
+| `\vzero` | Zero vector | $n\times 1$ | Additive identity |```bash
+
+| `\vec{0}`, `\mat{0}` | Zero vector/matrix | | All entries zero |
+
+| `\uvec{n}` | Unit vector | | Direction indicator, $\|\uvec{n}\|=1$ |make pdf          # Recommended**Note:** We use `\vect` and `\matr` instead of `\vector` and `\matrix` to avoid conflicts with the `amsmath` package. Some journals discourage underlining; check your target venue's style guide before submission.
+
+| `\det(\mat{A})` | Determinant | scalar | Volume scaling factor |
+
+| `\operatorname{tr}(\mat{A})` | Trace | scalar | Sum of diagonal entries |# OR
+
+| `\operatorname{rank}(\mat{A})` | Rank | integer | Dimension of column space |
+
+| $(\scalar{\lambda},\vec{x})$ | Eigenpair | $\mat{A}\vec{x}=\scalar{\lambda}\vec{x}$ | Eigenvalue $\scalar{\lambda}$, eigenvector $\vec{x}\neq\vec{0}$ |pdflatex main.tex---
+
+
+
+---pdflatex main.tex # Run twice for references
+
+
+
+## Usage Examples```## Notation Conventions
+
+
+
+### Example 1: Linear System
+
+
+
+```latex### 3. Customize| Type | Macro | Example | Rendering Convention |
+
+\mat{A}\vec{x} = \vec{b},
+
+```- Edit `config/metadata.tex` - Set your name, title, PDF metadata|------|-------|---------|---------------------|
+
+
+
+where $\mat{A}\in\mathbb{R}^{n\times n}$ is a square matrix, - Edit `config/glossary.tex` - Add your glossary entries and acronyms| **Scalar** | `\scalar{a}` | `\scalar{\alpha}`, `\scalar{E}` | Italic (single real or complex number) |
+
+$\vec{x}\in\mathbb{R}^n$ is the unknown vector, 
+
+and $\vec{b}\in\mathbb{R}^n$ is the right-hand side.- Edit `references.bib` - Add your bibliography entries| **Vector** | `\vect{v}` | `\vect{E}`, `\vect{F}`, `\vect{v}` | **Bold + single underline** (column vector) |
+
+
+
+### Example 2: Eigenvalue Problem- Modify `sections/` - Replace example content with your own| **Matrix** | `\mat{A}` | `\mat{M}`, `\mat{K}` | **Bold + double underline** (2D array) |
+
+
+
+```latex| **Tensor (≥3)** | `\tensor{T}` | `\tensor{C}`, or $C_{ijkl}$ | **Bold calligraphic** or explicit indices |
+
+\mat{A}\vec{v} = \scalar{\lambda}\vec{v}
+
+```---| **Unit vector** | `\hat{\vect{e}}_i` | `\hat{\vect{x}}` | Hat over underlined bold vector |
+
+
+
+### Example 3: Vector Calculus| **Zero** | `\vect{0}`, `\mat{0}` | — | Underlined bold zero |
+
+
+
+```latex## Project Structure| **Identity** | `\mat{I}_n` | — | Double-underlined bold I |
+
+\vec{F} = q\vec{E} + q\vec{v} \times \vec{B}
+
+```
+
+
+
+### Example 4: Maxwell's Equations```**Operators and special functions** (det, tr, rank, div, grad, etc.) should be typeset in upright roman using `\det`, `\operatorname{tr}`, `\nabla`, etc.
+
+
+
+```latex.
+
+\begin{align}
+
+  \vnabla \cdot \vec{E} &= \frac{\rho}{\epsilon_0} \\├── main.tex                    # Main document file---
+
+  \vnabla \times \vec{E} &= -\pd{\vec{B}}{t} \\
+
+  \vnabla \cdot \vec{B} &= 0 \\├── references.bib              # Bibliography database
+
+  \vnabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\epsilon_0\pd{\vec{E}}{t}
+
+\end{align}├── Makefile                    # Build automation## Symbol Reference Table
+
+```
+
+│
+
+---
+
+├── config/                     # Configuration files| Symbol | Name | Notation | Description / Example |
+
+## Project Structure
+
+│   ├── packages.tex           # Package imports|--------|------|----------|----------------------|
+
+```
+
+.│   ├── macros.tex             # Custom notation macros| `\scalar{a}` | Scalar | italic, $\scalar{a}\in\mathbb{R}$ | Single numeric value |
+
+├── LICENSE                    # MIT License
+
+├── Makefile                   # Build automation│   ├── theorems.tex           # Theorem environments| `\vect{v}` | Vector | bold + underline, $\vect{v}\in\mathbb{R}^n$ | Column vector, e.g. $\vect{v}=[v_1,\dots,v_n]^\top$ |
+
+├── README.md                  # This file
+
+├── main.tex                   # Main document│   ├── metadata.tex           # Author, title, PDF metadata| `\mat{A}` | Matrix | bold + double underline, $\mat{A}\in\mathbb{R}^{m\times n}$ | Linear map; entries $A_{ij}$ |
+
+├── references.bib             # Bibliography database
+
+├── .gitignore                 # Git ignore rules│   └── glossary.tex           # Glossary and acronym definitions| `\mat{A}^\top` | Transpose | superscript $^\top$ | Rows ↔ columns |
+
+│
+
+├── config/│| `\mat{A}^*` or `\mat{A}^\dagger` | Conjugate transpose | Hermitian conjugate | $(\mat{A}^*)_{ij}=\overline{A_{ji}}$ |
+
+│   ├── packages.tex           # LaTeX package imports
+
+│   ├── macros.tex             # Custom mathematical notation macros├── sections/                   # Content sections (modify these)| `\langle\vect{u},\vect{v}\rangle` | Inner product | angle brackets | $\langle\vect{u},\vect{v}\rangle=\vect{u}^\top\vect{v}$ (real) |
+
+│   ├── theorems.tex           # Theorem environment definitions
+
+│   ├── metadata.tex           # Author, title, PDF metadata│   ├── introduction.tex| `\|\vect{v}\|` | Norm | double bars | Euclidean norm $\|\vect{v}\|_2=\sqrt{\langle\vect{v},\vect{v}\rangle}$ |
+
+│   └── glossary.tex           # Glossary and acronym definitions
+
+││   ├── basic_notation.tex| `\vect{u}\otimes\vect{v}` | Tensor product | $\otimes$ | Rank-1 tensor / outer product |
+
+├── chapters/
+
+│   ├── 01_notation_system.tex        # Notation examples│   ├── linear_algebra.tex| `\vect{u}\vect{v}^\top` | Outer product | vector × transpose | Matrix with entries $u_i v_j$ |
+
+│   ├── 02_math_commands.tex          # Mathematical macros
+
+│   ├── 03_theorem_boxes.tex          # Colored theorem boxes│   ├── physics.tex| `\mat{I}_n` | Identity matrix | $n\times n$ | $\mat{I}_n \vect{x} = \vect{x}$ |
+
+│   ├── 04_advanced_features.tex      # Glossary, SI units, quantum
+
+│   └── 05_complete_example.tex       # Full EM wave problem│   ├── engineering.tex| `\vect{0}`, `\mat{0}` | Zero vector/matrix | | All entries zero |
+
+│
+
+├── figures/                   # Your figures go here│   ├── quantum_mechanics.tex| `\det(\mat{A})` | Determinant | scalar | Volume scaling factor |
+
+│
+
+└── build/                     # Compiled outputs (generated)│   ├── applications.tex| `\operatorname{tr}(\mat{A})` | Trace | scalar | Sum of diagonal entries |
+
+    ├── main.pdf               # Final PDF
+
+    └── *.aux, *.log, etc.     # Build artifacts│   ├── conclusion.tex| `\operatorname{rank}(\mat{A})` | Rank | integer | Dimension of column space |
+
+```
+
+│   └── appendix.tex| $(\scalar{\lambda},\vect{x})$ | Eigenpair | $\mat{A}\vect{x}=\scalar{\lambda}\vect{x}$ | Eigenvalue $\scalar{\lambda}$, eigenvector $\vect{x}\neq\vect{0}$ |
+
+---
+
+│| $\{\vect{e}_i\}$ | Canonical basis | standard basis | $\vect{e}_i$ has 1 at position $i$, 0 elsewhere |
+
+## How to Use This Template
+
+├── figures/                    # TikZ diagrams
+
+### Step 1: Set Metadata
+
+│   ├── least_squares_projection.tex---
+
+Edit `config/metadata.tex`:
+
+│   ├── rigid_body.tex
 
 ```latex
 
-% Theorem (blue box)# Or compile and view
+\newcommand{\doctitle}{[Your Document Title]}│   ├── waveguide_geometry.tex## Usage Examples
 
-\begin{theorem}{Pythagorean Theorem}{pythag}make view
+\newcommand{\docauthor}{[Your Name]}
 
-  In a right triangle, $a^2 + b^2 = c^2$.
+\newcommand{\docemail}{[your.email@example.com]}│   ├── te10_mode.tex
 
-\end{theorem}# For quick single-pass compilation
+\newcommand{\docdate}{\today}
 
-make quick
+```│   └── metasurface_reflection.tex### Example 1: Linear system
 
-% Definition (green box)
 
-\begin{definition}{Vector Space}{vecspace}# Clean build artifacts
 
-  A vector space is a set $V$ with addition and scalar multiplication...make clean
+### Step 2: Write Content│```latex
+
+
+
+Create your chapters in the `chapters/` directory. Each chapter is a separate `.tex` file that will be included in `main.tex`.└── build/                      # Compiled output (auto-generated)Consider the linear system
+
+
+
+### Step 3: Add References```\[
+
+
+
+Edit `references.bib` to add your bibliography entries:  \mat{A}\vect{x} = \vect{b},
+
+
+
+```bibtex---\]
+
+@article{einstein1905,
+
+  author = {Einstein, Albert},where $\mat{A}\in\mathbb{R}^{n\times n}$ is a square matrix, 
+
+  title = {On the electrodynamics of moving bodies},
+
+  journal = {Annalen der Physik},## Notation System$\vect{x}\in\mathbb{R}^n$ is the unknown vector, 
+
+  year = {1905},
+
+  volume = {322},and $\vect{b}\in\mathbb{R}^n$ is the right-hand side.
+
+  number = {10},
+
+  pages = {891--921}### Basic Usage```
+
+}
+
+```
+
+
+
+### Step 4: Compile```latex### Example 2: Eigenvalue problem
+
+
+
+```bash% Scalars (italic by default)```latex
+
+make pdf          # Recommended (handles multiple passes)
+
+# ORLet $\scalar{x} = 5$ and $\scalar{y} = 3$.The eigenvalue problem for $\mat{A}$ is
+
+make rebuild      # Clean and rebuild from scratch
+
+```\[
+
+
+
+---% Vectors (bold + underline)  \mat{A}\vect{x} = \scalar{\lambda}\vect{x},
+
+
+
+## CompilationThe velocity vector is $\vect{v} = \vect{v}_0 + \vect{a}t$.\]
+
+
+
+### Using the Makefilewhere $\scalar{\lambda}\in\mathbb{C}$ is the eigenvalue 
+
+
+
+```bash% Matrices (bold + double underline)and $\vect{x}\neq\vect{0}$ is the corresponding eigenvector.
+
+make pdf          # Compile the document
+
+make clean        # Remove build artifactsThe transformation matrix $\mat{A}$ satisfies $\mat{A}\vect{x} = \vect{b}$.```
+
+make rebuild      # Clean and rebuild from scratch
+
+make view         # Open the PDF (platform-dependent)
+
+```
+
+% Tensors (bold calligraphic)### Example 3: Physics (Newton's second law)
+
+The Makefile handles:
+
+- 3-pass compilation for cross-referencesThe stress tensor $\tensor{σ}$ relates stress to strain.```latex
+
+- Glossary generation with `makeglossaries`
+
+- Error logging to `build/build.log````Newton's second law in vector form:
+
+- Concise terminal output
+
+\[
+
+### Manual Compilation
+
+### Common Patterns  \vect{F} = \scalar{m}\vect{a},
+
+```bash
+
+pdflatex -output-directory=build main.tex\]
+
+makeglossaries -d build main
+
+pdflatex -output-directory=build main.tex```latexwhere $\vect{F}$ is the net force, $\scalar{m}$ is the scalar mass, 
+
+pdflatex -output-directory=build main.tex
+
+```% Unit vectorsand $\vect{a}$ is the acceleration vector.
+
+
+
+---$\xhat, \yhat, \zhat$                    % Cartesian```
+
+
+
+## Best Practices$\rhohat, \phihat, \zhat$               % Cylindrical  
+
+
+
+### 1. Notation Consistency$\Rhat, \thetahat, \phihat$             % Spherical### Example 4: Inline text
+
+
+
+- Use `\scalar{...}` for all scalar variables```latex
+
+- Use `\vec{...}` for all vectors
+
+- Use `\mat{...}` for all matrices% Vector operationsThe electric field $\vect{E}$ at position $\vect{r}$ 
+
+- Use `\tensor{...}` for tensors of order ≥ 3
+
+$\vect{a} \vdot \vect{b}$               % Dot productis computed from the potential $\scalar{\phi}$ as 
+
+### 2. Physical Units
+
+$\vproj{a}{b}$                          % Projection of b onto a$\vect{E} = -\nabla\scalar{\phi}$.
+
+Use the `siunitx` package for physical quantities:
+
+$\vang{a}{b}$                           % Angle between vectors```
+
+```latex
+
+\SI{3e8}{\meter\per\second}     % Speed of light
+
+\SI{9.8}{\meter\per\second\squared}  % Gravitational acceleration
+
+```% Derivatives---
+
+
+
+### 3. Theorem Environments$\pd{f}{x}$                             % ∂f/∂x
+
+
+
+Use the predefined colored boxes:$\pdd{f}{x}$                            % ∂²f/∂x²## How to Use This Template
+
+
+
+```latex$\pdc{f}{x}{y}$                         % ∂²f/∂x∂y
+
+\begin{theorem}[Pythagorean Theorem]
+
+  In a right triangle, $a^2 + b^2 = c^2$.$\td{s}{t}$                             % ds/dt### Option 1: Use the Complete LaTeX Template
+
+\end{theorem}
+
+
+
+\begin{definition}[Vector Space]
+
+  A set $V$ with addition and scalar multiplication...% OperatorsThis repository includes a ready-to-use LaTeX template with comprehensive examples:
 
 \end{definition}
 
-# See all available commands
+```$\vnabla \times \vect{E}$               % Curl
+
+
+
+### 4. Code Organization$\vnabla \cdot \vect{B}$                % Divergence**Files included:**
+
+
+
+- Keep macros in `config/macros.tex`$\grad f$, $\Div \vect{F}$, $\curl \vect{A}$- `main.tex` - Complete LaTeX document with examples from physics, linear algebra, engineering
+
+- Keep content in separate chapter files
+
+- Use meaningful label names (e.g., `\label{eq:maxwell_faraday}`)```- `Makefile` - Build automation with multiple targets
+
+
+
+---- `.gitignore` - Excludes LaTeX build artifacts
+
+
+
+## Contributing---
+
+
+
+Contributions are welcome! Please:**Quick start:**
+
+
+
+1. Fork the repository## Using Colored Theorem Boxes```bash
+
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+
+3. Make your changes# Clone or download this repository
+
+4. Test compilation
+
+5. Submit a pull request### Numbered Environments (tcolorbox style)cd report
+
+
+
+---
+
+
+
+## LicenseFor fancy colored boxes with numbering, use the tcolorbox syntax:# Compile the template
+
+
+
+This template is released under the [MIT License](LICENSE).make pdf
+
+
+
+**Copyright (c) 2025 Mohammadmahdi Maharebi**```latex
+
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this template to use, modify, and distribute it for any purpose, including commercial projects, subject to the terms of the MIT License.% Theorem (blue box)# Or compile and view
+
+
+
+---\begin{theorem}{Pythagorean Theorem}{pythag}make view
+
+
+
+## Author  In a right triangle, $a^2 + b^2 = c^2$.
+
+
+
+**Mohammadmahdi Maharebi**\end{theorem}# For quick single-pass compilation
+
+- Email: mmaharebi@gmail.com
+
+- GitHub: [@mmaharebi](https://github.com/mmaharebi)make quick
+
+
+
+---% Definition (green box)
+
+
+
+## Acknowledgments\begin{definition}{Vector Space}{vecspace}# Clean build artifacts
+
+
+
+This template was designed to support clear mathematical communication in physics, engineering, and applied mathematics. It incorporates best practices from scientific typesetting and modern LaTeX workflows.  A vector space is a set $V$ with addition and scalar multiplication...make clean
+
+
+
+---\end{definition}
+
+
+
+**Happy LaTeXing! 📝**# See all available commands
+
 
 % Note (yellow/orange box)make help
 
@@ -414,7 +783,7 @@ For simple amsthm-style boxes (no fancy colors), use the standard syntax:
 
 \begin{remark}[Note about convergence]```latex
 
-  The series converges for all $x \in [0,1]$.\mat{A}\vec{x} = \vec{b}
+  The series converges for all $x \in [0,1]$.\mat{A}\vect{x} = \vect{b}
 
 \end{remark}```
 
@@ -428,7 +797,7 @@ For simple amsthm-style boxes (no fancy colors), use the standard syntax:
 
 \end{definition}2. Copy the macro definitions from `main.tex` to your preamble
 
-```3. Start writing equations using `\vec{v}`, `\mat{A}`, etc.
+```3. Start writing equations using `\vect{v}`, `\mat{A}`, etc.
 
 4. Or upload the entire `main.tex` file as a starting template
 
@@ -492,15 +861,15 @@ For simple amsthm-style boxes (no fancy colors), use the standard syntax:
 
 ---
 
-1. **Apply macros uniformly:** Don't mix `\mathbf{v}` and `\vec{v}` in the same document.
+1. **Apply macros uniformly:** Don't mix `\mathbf{v}` and `\vect{v}` in the same document.
 
 ## Advanced Features2. **Index notation clarity:** For tensors of order ≥3, consider explicit indices (e.g., $C_{ijkl}$) if your audience is more familiar with that style.
 
-3. **Unit vectors:** Use `\hat{\vec{e}}_i` or `\hat{\vec{n}}` to denote normalized direction vectors.
+3. **Unit vectors:** Use `\hat{\vect{e}}_i` or `\hat{\vect{n}}` to denote normalized direction vectors.
 
 ### Glossary and Acronyms4. **Operators in roman:** Always use `\det`, `\operatorname{tr}`, `\operatorname{rank}`, `\nabla` (upright) to distinguish them from variables.
 
-5. **Color for emphasis (optional):** In presentations or lecture notes, you may combine underlining with color (e.g., `\textcolor{blue}{\vec{v}}`), but avoid this in print journals.
+5. **Color for emphasis (optional):** In presentations or lecture notes, you may combine underlining with color (e.g., `\textcolor{blue}{\vect{v}}`), but avoid this in print journals.
 
 Add entries in `config/glossary.tex`:6. **Compatibility with math fonts:** The underlining works with most standard LaTeX fonts (Computer Modern, Latin Modern, etc.). Test with your chosen font package.
 
@@ -554,7 +923,7 @@ To print the glossary (add to your document):**Quick Reference:**
 
 \printglossary| Scalar | `\scalar{a}` | $\mathit{a}$ |
 
-```| Vector | `\vec{v}` | **$\underline{\mathbf{v}}$** |
+```| Vector | `\vect{v}` | **$\underline{\mathbf{v}}$** |
 
 | Matrix | `\mat{A}` | **$\underline{\underline{\mathbf{A}}}$** |
 

@@ -42,5 +42,5 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Optional: Uncomment to ignore PDF output
-# main.pdf
+# PDF output (generated in build/)
+main.pdf
