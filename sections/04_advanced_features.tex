@@ -26,37 +26,39 @@ Force full form: \acrfull{em}.
 \subsubsection{Adding Glossary Entries}
 
 Edit \texttt{config/glossary.tex} to add your terms:
-\begin{verbatim}
+
+\begin{codeblock}[language=TeX]
 \newglossaryentry{myterm}{
   name=my term,
   description={Description of my term}
 }
 
 \newacronym{api}{API}{Application Programming Interface}
-\end{verbatim}
+\end{codeblock}
 
 \subsection{Bibliography and Citations}
 
 The template is ready for BibTeX citations. Add entries to \texttt{references.bib}:
 
-\begin{verbatim}
+\begin{codeblock}[language=TeX]
 @article{shannon1948,
   author = {Shannon, Claude E.},
   title = {A Mathematical Theory of Communication},
   journal = {Bell System Technical Journal},
   year = {1948}
 }
-\end{verbatim}
+\end{codeblock}
 
 Then cite in your document: As shown by Shannon \cite{shannon1948}, information has entropy.
 
 To compile with bibliography:
-\begin{verbatim}
+
+\begin{codeblock}[language=bash]
 pdflatex main
 bibtex main
 pdflatex main
 pdflatex main
-\end{verbatim}
+\end{codeblock}
 
 \subsection{SI Units with siunitx}
 

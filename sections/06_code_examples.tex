@@ -1,0 +1,161 @@
+% Chapter 6: Code Examples
+% Demonstrates syntax-highlighted code boxes
+
+\section{Code Boxes}
+
+The template provides beautiful, syntax-highlighted code boxes that integrate with the design system.
+
+\subsection{Python Examples}
+
+\subsubsection{Matrix Operations}
+
+\begin{pythoncode}
+import numpy as np
+
+# Create a matrix
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+# Matrix multiplication
+C = np.dot(A, B)
+print(f"Result:\n{C}")
+
+# Eigenvalues
+eigenvalues = np.linalg.eigvals(A)
+print(f"Eigenvalues: {eigenvalues}")
+\end{pythoncode}
+
+\subsubsection{Data Analysis}
+
+\begin{codebox}[language=Python]{Statistical Analysis}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load data
+df = pd.read_csv('data.csv')
+
+# Calculate statistics
+mean = df['values'].mean()
+std = df['values'].std()
+
+# Plot histogram
+plt.hist(df['values'], bins=30)
+plt.title(f'Distribution (mean={mean:.2f}, std={std:.2f})')
+plt.show()
+\end{codebox}
+
+\subsection{C++ Examples}
+
+\subsubsection{Template Function}
+
+\begin{cppcode}
+// Template function for finding maximum value
+#include <vector>
+#include <algorithm>
+#include <iostream>
+
+template<typename T>
+T findMax(const std::vector<T>& vec) {
+    if (vec.empty()) {
+        throw std::invalid_argument("Empty vector");
+    }
+    return *std::max_element(vec.begin(), vec.end());
+}
+
+int main() {
+    std::vector<int> numbers = {3, 1, 4, 1, 5, 9};
+    int max_val = findMax(numbers);
+    std::cout << "Maximum: " << max_val << std::endl;
+    return 0;
+}
+\end{cppcode}
+
+\subsection{Java Examples}
+
+\begin{javacode}
+public class BinarySearch {
+    public static int search(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            if (arr[mid] == target) {
+                return mid;  // Found
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1;  // Not found
+    }
+}
+\end{javacode}
+
+\subsection{Inline Code Blocks}
+
+For short snippets without title or line numbers:
+
+\begin{codeblock}[language=bash]
+# Install dependencies
+pip install numpy scipy matplotlib
+
+# Run the script
+python analysis.py --input data.csv
+\end{codeblock}
+
+\subsection{MATLAB Example}
+
+\begin{codebox}[language=Matlab]{Signal Processing}
+% Generate signal
+fs = 1000;              % Sampling frequency
+t = 0:1/fs:1-1/fs;      % Time vector
+f = 5;                  % Frequency
+signal = sin(2*pi*f*t);
+
+% Apply FFT
+Y = fft(signal);
+P2 = abs(Y/length(signal));
+
+% Plot
+plot(t, signal);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Sine Wave Signal');
+\end{codebox}
+
+\subsection{SQL Example}
+
+\begin{codebox}[language=SQL]{Database Query}
+-- Select students with high grades
+SELECT 
+    s.student_id,
+    s.name,
+    AVG(g.grade) AS avg_grade
+FROM students s
+JOIN grades g ON s.student_id = g.student_id
+WHERE g.semester = 'Fall 2024'
+GROUP BY s.student_id, s.name
+HAVING AVG(g.grade) >= 90
+ORDER BY avg_grade DESC;
+\end{codebox}
+
+\subsection{Custom Language Example}
+
+You can specify any language supported by \texttt{listings}:
+
+\begin{codebox}[language=R]{Statistical Modeling in R}
+# Load data
+data <- read.csv("experiment.csv")
+
+# Fit linear model
+model <- lm(response ~ predictor1 + predictor2, data = data)
+
+# Summary statistics
+summary(model)
+
+# Plot residuals
+plot(model$residuals)
+abline(h = 0, col = "red", lty = 2)
+\end{codebox}

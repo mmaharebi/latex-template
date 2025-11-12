@@ -31,26 +31,16 @@
 \usepackage{geometry}
 \geometry{margin=1in}
 
-% Colors
+% Colors (basic package - specific colors defined in theme.tex)
 \usepackage{xcolor}
-\definecolor{vectorcolor}{RGB}{0,102,204}
-\definecolor{forcecolor}{RGB}{204,0,0}
-\definecolor{momentcolor}{RGB}{0,153,0}
 
-% Hyperlinks and references
+% Hyperlinks and references (styling configured in theme.tex)
 \usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    urlcolor=blue,
-    citecolor=blue,
-    bookmarksnumbered=true,
-    pdfstartview=FitH
-}
 
 % Better tables
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{colortbl}  % For colored table rules
 
 % Better lists
 \usepackage{enumitem}
@@ -69,10 +59,12 @@
 % Glossaries and acronyms (must load before hyperref)
 \usepackage[acronym,toc]{glossaries}
 
-% Code listings (optional, if needed)
+% Code listings with syntax highlighting
 \usepackage{listings}
-\lstset{
-    basicstyle=\ttfamily\small,
-    breaklines=true,
-    frame=single
-}
+
+% Optional: Advanced syntax highlighting with minted (requires Python Pygments)
+% Uncomment the following lines to use minted instead of listings:
+% \usepackage{minted}
+% Note: Requires installing Pygments: pip install Pygments
+% Note: Compile with: pdflatex -shell-escape main.tex
+
