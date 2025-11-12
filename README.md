@@ -148,7 +148,7 @@ pdflatex main.tex # Run twice for references
 
 - Edit `references.bib` - Add your bibliography entries### Why adopt a physical-style notation?
 
-- Create your content in `chapters/` directory
+- Create your content in `sections/` directory
 
 - Add figures to `figures/` directory---
 
@@ -408,7 +408,7 @@ and $\vec{b}\in\mathbb{R}^n$ is the right-hand side.- Edit `references.bib` - Ad
 
 ││   ├── basic_notation.tex| `\vect{u}\otimes\vect{v}` | Tensor product | $\otimes$ | Rank-1 tensor / outer product |
 
-├── chapters/
+├── sections/
 
 │   ├── 01_notation_system.tex        # Notation examples│   ├── linear_algebra.tex| `\vect{u}\vect{v}^\top` | Outer product | vector × transpose | Matrix with entries $u_i v_j$ |
 
@@ -470,7 +470,7 @@ Edit `config/metadata.tex`:
 
 
 
-Create your chapters in the `chapters/` directory. Each chapter is a separate `.tex` file that will be included in `main.tex`.└── build/                      # Compiled output (auto-generated)Consider the linear system
+Create your sections in the `sections/` directory. Each section is a separate `.tex` file that will be included in `main.tex`.└── build/                      # Compiled output (auto-generated)Consider the linear system
 
 
 
@@ -652,7 +652,7 @@ Use the predefined colored boxes:$\pdd{f}{x}$                            % ∂²
 
 - Keep macros in `config/macros.tex`$\grad f$, $\Div \vect{F}$, $\curl \vect{A}$- `main.tex` - Complete LaTeX document with examples from physics, linear algebra, engineering
 
-- Keep content in separate chapter files
+- Keep content in separate section files
 
 - Use meaningful label names (e.g., `\label{eq:maxwell_faraday}`)```- `Makefile` - Build automation with multiple targets
 

@@ -30,21 +30,32 @@ This document serves as both a template and demonstration of a comprehensive LaT
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN CONTENT
-% Each chapter demonstrates a different feature of the template
+% Each section demonstrates a different feature of the template
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{chapters/01_notation_system}
-\input{chapters/02_math_commands}
-\input{chapters/03_theorem_boxes}
-\input{chapters/04_advanced_features}
-\input{chapters/05_complete_example}
+\input{sections/01_notation_system}
+\input{sections/02_math_commands}
+\input{sections/03_theorem_boxes}
+\input{sections/04_advanced_features}
+\input{sections/05_complete_example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAPHY (if using)
 % Uncomment the following lines to include bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \bibliographystyle{plain}
-% \bibliography{references}
+\bibliographystyle{plain}
+\bibliography{references}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX - GLOSSARY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\section{Glossary}
+
+\printglossary[type=\acronymtype,title={Acronyms}]
+\printglossary[type=main,title={Terms and Definitions}]
 
 \end{document}
