@@ -1,0 +1,161 @@
+% 08_optimization.tex
+% Demonstrates optimization and linear algebra macros
+
+\section{Optimization and Linear Algebra}
+
+This section demonstrates optimization and linear algebra notation.
+
+\subsection{Optimization Problems}
+
+\subsubsection{Basic Optimization Formulation}
+
+A general optimization problem:
+\[
+\begin{aligned}
+\minimize \quad & f(\vec{x}) \\
+\subjectto \quad & g_i(\vec{x}) \leq 0, \quad i = 1, \ldots, m \\
+& h_j(\vec{x}) = 0, \quad j = 1, \ldots, p \\
+& \vec{x} \in \R^n
+\end{aligned}
+\]
+
+\subsubsection{Argmin and Argmax}
+
+The \textbf{argmin} finds the input that minimizes a function:
+\[
+\vec{x}^* = \argmin_{\vec{x} \in \mathcal{X}} f(\vec{x})
+\]
+
+The \textbf{argmax} finds the maximum:
+\[
+\vec{x}^* = \argmax_{\vec{x} \in \mathcal{X}} f(\vec{x})
+\]
+
+Example: Least squares regression
+\[
+\vec{w}^* = \argmin_{\vec{w} \in \R^d} \norm{\mat{X}\vec{w} - \vec{y}}^2
+\]
+
+\subsubsection{Unconstrained Optimization}
+
+For smooth functions, critical points satisfy:
+\[
+\vnabla f(\vec{x}^*) = \vzero
+\]
+
+Second-order conditions:
+\begin{itemize}
+    \item Local minimum: $\nabla^2 f(\vec{x}^*) \succeq 0$ (positive semidefinite)
+    \item Local maximum: $\nabla^2 f(\vec{x}^*) \preceq 0$ (negative semidefinite)
+\end{itemize}
+
+\subsubsection{Constrained Optimization: Lagrangian}
+
+For equality constraints $h(\vec{x}) = \vzero$, the Lagrangian is:
+\[
+\mathcal{L}(\vec{x}, \vec{\lambda}) = f(\vec{x}) + \vec{\lambda}^{\top} h(\vec{x})
+\]
+
+KKT conditions at optimal $\vec{x}^*$:
+\begin{align}
+\vnabla_{\vec{x}} \mathcal{L}(\vec{x}^*, \vec{\lambda}^*) &= \vzero \\
+h(\vec{x}^*) &= \vzero
+\end{align}
+
+\subsection{Linear Algebra Operations}
+
+\subsubsection{Matrix Operations}
+
+For a matrix $\mat{A} \in \R^{m \times n}$:
+\begin{itemize}
+    \item \textbf{Transpose}: $\transpose{\mat{A}} \in \R^{n \times m}$
+    \item \textbf{Inverse}: $\inv{\mat{A}}$ (if $\mat{A}$ is square and invertible)
+    \item \textbf{Determinant}: $\det(\mat{A})$ (if $\mat{A}$ is square)
+    \item \textbf{Trace}: $\tr(\mat{A}) = \sum_{i=1}^{\min(m,n)} a_{ii}$
+    \item \textbf{Rank}: $\rank(\mat{A})$ = dimension of column space
+    \item \textbf{Nullity}: $\nullity(\mat{A}) = n - \rank(\mat{A})$
+\end{itemize}
+
+\subsubsection{Vector Spaces}
+
+For a matrix $\mat{A} \in \R^{m \times n}$ or linear transformation $T: \R^n \to \R^m$:
+\begin{itemize}
+    \item \textbf{Column space}: $\Col(\mat{A}) = \set{\mat{A}\vec{x} : \vec{x} \in \R^n}$
+    \item \textbf{Row space}: $\Row(\mat{A}) = \Col(\transpose{\mat{A}})$
+    \item \textbf{Null space (kernel)}: $\Null(\mat{A}) = \Ker(T) = \set{\vec{x} : \mat{A}\vec{x} = \vzero}$
+    \item \textbf{Image}: $\Image(T) = \set{T(\vec{x}) : \vec{x} \in \R^n}$
+\end{itemize}
+
+Rank-nullity theorem:
+\[
+\rank(\mat{A}) + \nullity(\mat{A}) = n
+\]
+
+\subsubsection{Span and Linear Independence}
+
+The \textbf{span} of vectors $\vec{v}_1, \ldots, \vec{v}_k$ is:
+\[
+\Span\set{\vec{v}_1, \ldots, \vec{v}_k} = \set{\sum_{i=1}^{k} c_i \vec{v}_i : c_i \in \R}
+\]
+
+Vectors are linearly independent if:
+\[
+\sum_{i=1}^{k} c_i \vec{v}_i = \vzero \implies c_1 = \cdots = c_k = 0
+\]
+
+\subsubsection{Eigenvalues and Eigenvectors}
+
+For a square matrix $\mat{A} \in \R^{n \times n}$:
+\[
+\mat{A}\vec{v} = \lambda \vec{v}
+\]
+where $\lambda$ is an eigenvalue and $\vec{v}$ is the corresponding eigenvector.
+
+The characteristic polynomial:
+\[
+\det(\mat{A} - \lambda \midentity) = 0
+\]
+
+\subsubsection{Diagonal Matrices}
+
+A diagonal matrix can be written as:
+\[
+\mat{D} = \diag(\lambda_1, \lambda_2, \ldots, \lambda_n)
+\]
+
+Eigenvalue decomposition (if $\mat{A}$ is diagonalizable):
+\[
+\mat{A} = \mat{V} \mat{D} \inv{\mat{V}}
+\]
+where columns of $\mat{V}$ are eigenvectors and $\mat{D} = \diag(\lambda_1, \ldots, \lambda_n)$.
+
+\subsubsection{Hermitian Conjugate}
+
+For complex matrices, the Hermitian conjugate (conjugate transpose):
+\[
+\hermitian{\mat{A}} = \overline{\transpose{\mat{A}}}
+\]
+
+A matrix is \textbf{Hermitian} if $\mat{A} = \hermitian{\mat{A}}$.
+
+\subsection{Convex Optimization}
+
+A function $f: \R^n \to \R$ is \textbf{convex} if for all $\vec{x}, \vec{y} \in \R^n$ and $\theta \in [0,1]$:
+\[
+f(\theta \vec{x} + (1-\theta)\vec{y}) \leq \theta f(\vec{x}) + (1-\theta)f(\vec{y})
+\]
+
+For convex optimization problems:
+\begin{itemize}
+    \item Any local minimum is a global minimum
+    \item KKT conditions are sufficient for optimality
+\end{itemize}
+
+Example: Support Vector Machine (SVM)
+\[
+\begin{aligned}
+\minimize \quad & \frac{1}{2}\norm{\vec{w}}^2 + C\sum_{i=1}^{n} \xi_i \\
+\subjectto \quad & y_i(\vec{w}^{\top}\vec{x}_i + b) \geq 1 - \xi_i \\
+& \xi_i \geq 0, \quad i = 1, \ldots, n
+\end{aligned}
+\]

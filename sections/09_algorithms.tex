@@ -1,0 +1,211 @@
+% 09_algorithms.tex
+% Demonstrates algorithm and pseudocode examples
+
+\section{Algorithms and Complexity}
+
+This section demonstrates algorithm pseudocode using the \texttt{algorithm2e} package, along with set theory and complexity notation.
+
+\subsection{Algorithm Examples}
+
+\subsubsection{Simple Algorithm: Binary Search}
+
+\begin{algorithm}[H]
+\caption{Binary Search}
+\KwIn{Sorted array $A[1..n]$, target value $x$}
+\KwOut{Index of $x$ in $A$, or $-1$ if not found}
+
+$\text{left} \gets 1$\;
+$\text{right} \gets n$\;
+
+\While{$\text{left} \leq \text{right}$}{
+    $\text{mid} \gets \lfloor (\text{left} + \text{right}) / 2 \rfloor$\;
+    
+    \uIf{$A[\text{mid}] = x$}{
+        \Return{mid}\;
+    }
+    \uElseIf{$A[\text{mid}] < x$}{
+        $\text{left} \gets \text{mid} + 1$\;
+    }
+    \Else{
+        $\text{right} \gets \text{mid} - 1$\;
+    }
+}
+
+\Return{$-1$}\;
+\end{algorithm}
+
+Time complexity: $\Oh(\log n)$, Space complexity: $\Oh(1)$.
+
+\subsubsection{Sorting Algorithm: QuickSort}
+
+\begin{algorithm}[H]
+\caption{QuickSort}
+\KwIn{Array $A[1..n]$, indices $\text{low}$, $\text{high}$}
+\KwOut{Sorted array $A$}
+
+\SetKwFunction{FQuickSort}{QuickSort}
+\SetKwFunction{FPartition}{Partition}
+
+\SetKwProg{Fn}{Function}{:}{}
+\Fn{\FQuickSort{$A$, low, high}}{
+    \If{$\text{low} < \text{high}$}{
+        $\text{pivot} \gets$ \FPartition{$A$, low, high}\;
+        \FQuickSort{$A$, low, pivot $-1$}\;
+        \FQuickSort{$A$, pivot $+1$, high}\;
+    }
+}
+
+\Fn{\FPartition{$A$, low, high}}{
+    $\text{pivot} \gets A[\text{high}]$\;
+    $i \gets \text{low} - 1$\;
+    
+    \For{$j \gets \text{low}$ \KwTo $\text{high} - 1$}{
+        \If{$A[j] \leq \text{pivot}$}{
+            $i \gets i + 1$\;
+            Swap $A[i]$ and $A[j]$\;
+        }
+    }
+    Swap $A[i+1]$ and $A[\text{high}]$\;
+    \Return{$i + 1$}\;
+}
+\end{algorithm}
+
+Average time complexity: $\Oh(n \log n)$, Worst case: $\Oh(n^2)$.
+
+\subsubsection{Graph Algorithm: Dijkstra's Shortest Path}
+
+\begin{algorithm}[H]
+\caption{Dijkstra's Algorithm}
+\KwIn{Graph $G = (V, E)$ with weights $w: E \to \R^+$, source vertex $s$}
+\KwOut{Shortest distances $d[v]$ from $s$ to all vertices $v \in V$}
+
+\ForEach{$v \in V$}{
+    $d[v] \gets \infty$\;
+    $\text{prev}[v] \gets \text{null}$\;
+}
+$d[s] \gets 0$\;
+
+$Q \gets V$ \tcp{Priority queue}
+
+\While{$Q \neq \emptyset$}{
+    $u \gets \argmin_{v \in Q} d[v]$\;
+    Remove $u$ from $Q$\;
+    
+    \ForEach{neighbor $v$ of $u$}{
+        $\text{alt} \gets d[u] + w(u, v)$\;
+        \If{$\text{alt} < d[v]$}{
+            $d[v] \gets \text{alt}$\;
+            $\text{prev}[v] \gets u$\;
+        }
+    }
+}
+
+\Return{$d$, prev}\;
+\end{algorithm}
+
+Time complexity: $\Oh((|V| + |E|) \log |V|)$ with binary heap.
+
+\subsection{Set Theory Notation}
+
+\subsubsection{Basic Set Operations}
+
+Let $A = \set{1, 2, 3, 4}$ and $B = \set{3, 4, 5, 6}$.
+
+\begin{itemize}
+    \item \textbf{Set builder notation}: $\setbuilder{x \in \N}{x < 10 \text{ and } x \text{ is even}} = \set{2, 4, 6, 8}$
+    \item \textbf{Union}: $A \union B = \set{1, 2, 3, 4, 5, 6}$
+    \item \textbf{Intersection}: $A \intersect B = \set{3, 4}$
+    \item \textbf{Set difference}: $A \setminus B = \set{1, 2}$
+    \item \textbf{Complement}: $\comp{A}$ (elements not in $A$)
+    \item \textbf{Cardinality}: $\card{A} = 4$
+\end{itemize}
+
+\subsubsection{Power Set}
+
+The \textbf{power set} $\powerset{A}$ is the set of all subsets of $A$:
+\[
+\powerset{\set{1, 2}} = \set{\emptyset, \set{1}, \set{2}, \set{1,2}}
+\]
+
+Property: $\card{\powerset{A}} = 2^{\card{A}}$.
+
+\subsubsection{Indexed Families of Sets}
+
+Big union and intersection over indexed families:
+\[
+\Union_{i=1}^{n} A_i = A_1 \union A_2 \union \cdots \union A_n
+\]
+\[
+\Intersect_{i=1}^{n} A_i = A_1 \intersect A_2 \intersect \cdots \intersect A_n
+\]
+
+\subsection{Complexity Analysis}
+
+\subsubsection{Big-O Notation}
+
+Let $f, g: \N \to \R^+$. We say:
+
+\begin{itemize}
+    \item $f(n) = \Oh(g(n))$ if $\exists c > 0, n_0 \in \N$ such that $f(n) \leq c \cdot g(n)$ for all $n \geq n_0$ (upper bound)
+    \item $f(n) = \Omega(g(n))$ if $\exists c > 0, n_0 \in \N$ such that $f(n) \geq c \cdot g(n)$ for all $n \geq n_0$ (lower bound)
+    \item $f(n) = \Theta(g(n))$ if $f(n) = \Oh(g(n))$ and $f(n) = \Omega(g(n))$ (tight bound)
+    \item $f(n) = \oh(g(n))$ if $\lim\limits_{n \to \infty} \frac{f(n)}{g(n)} = 0$ (strict upper bound)
+    \item $f(n) = \omega(g(n))$ if $\lim\limits_{n \to \infty} \frac{f(n)}{g(n)} = \infty$ (strict lower bound)
+\end{itemize}
+
+\subsubsection{Common Complexity Classes}
+
+In order of growth:
+\[
+\Oh(1) \subset \Oh(\log n) \subset \Oh(n) \subset \Oh(n \log n) \subset \Oh(n^2) \subset \Oh(2^n) \subset \Oh(n!)
+\]
+
+Examples:
+\begin{itemize}
+    \item Accessing array element: $\Oh(1)$
+    \item Binary search: $\Oh(\log n)$
+    \item Linear search: $\Oh(n)$
+    \item Merge sort, heap sort: $\Oh(n \log n)$
+    \item Bubble sort, selection sort: $\Oh(n^2)$
+    \item Subset enumeration: $\Oh(2^n)$
+    \item Permutation enumeration: $\Oh(n!)$
+\end{itemize}
+
+\subsubsection{Analysis Example}
+
+Consider the following nested loops:
+\begin{verbatim}
+for i = 1 to n:
+    for j = 1 to i:
+        // O(1) operation
+\end{verbatim}
+
+Number of operations:
+\[
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2} = \Theta(n^2)
+\]
+
+\subsection{Dynamic Programming Example}
+
+\begin{algorithm}[H]
+\caption{Longest Increasing Subsequence (LIS)}
+\KwIn{Array $A[1..n]$}
+\KwOut{Length of longest increasing subsequence}
+
+\tcp{dp[i] = length of LIS ending at index i}
+\ForEach{$i \gets 1$ \KwTo $n$}{
+    $\text{dp}[i] \gets 1$\;
+}
+
+\For{$i \gets 2$ \KwTo $n$}{
+    \For{$j \gets 1$ \KwTo $i-1$}{
+        \If{$A[j] < A[i]$}{
+            $\text{dp}[i] \gets \max(\text{dp}[i], \text{dp}[j] + 1)$\;
+        }
+    }
+}
+
+\Return{$\max_{i=1}^{n} \text{dp}[i]$}\;
+\end{algorithm}
+
+Time complexity: $\Oh(n^2)$, Space complexity: $\Oh(n)$.

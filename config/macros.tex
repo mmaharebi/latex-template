@@ -85,11 +85,81 @@
 \newcommand{\e}{\mathrm{e}}
 \newcommand{\imag}{\mathrm{j}}  % Imaginary unit (engineering convention)
 
-% Probability
-\newcommand{\Prob}[1]{\mathrm{P}\left(#1\right)}
-\newcommand{\given}{\,|\,}
+% Probability and Statistics
+\newcommand{\Prob}[1]{\mathrm{P}\left(#1\right)}                    % Probability: P(A)
+\newcommand{\given}{\,|\,}                                          % Conditional: P(A|B)
+\newcommand{\Expect}[1]{\mathrm{E}\left[#1\right]}                  % Expectation: E[X]
+\newcommand{\Var}[1]{\mathrm{Var}\left(#1\right)}                   % Variance: Var(X)
+\newcommand{\Cov}[2]{\mathrm{Cov}\left(#1, #2\right)}               % Covariance: Cov(X,Y)
+\newcommand{\Corr}[2]{\mathrm{Corr}\left(#1, #2\right)}             % Correlation: Corr(X,Y)
+\newcommand{\StdDev}[1]{\mathrm{SD}\left(#1\right)}                 % Standard deviation: SD(X)
+\newcommand{\bias}[1]{\mathrm{bias}\left(#1\right)}                 % Bias: bias(θ̂)
+\newcommand{\MSE}[1]{\mathrm{MSE}\left(#1\right)}                   % Mean squared error: MSE(θ̂)
+
+% Distributions
+\newcommand{\Normal}[2]{\mathcal{N}\left(#1, #2\right)}             % Normal distribution: N(μ,σ²)
+\newcommand{\Uniform}[2]{\mathcal{U}\left(#1, #2\right)}            % Uniform distribution: U(a,b)
+\newcommand{\Bernoulli}[1]{\mathrm{Bernoulli}\left(#1\right)}       % Bernoulli(p)
+\newcommand{\Binomial}[2]{\mathrm{Binomial}\left(#1, #2\right)}     % Binomial(n,p)
+\newcommand{\Poisson}[1]{\mathrm{Poisson}\left(#1\right)}           % Poisson(λ)
+\newcommand{\Exponential}[1]{\mathrm{Exp}\left(#1\right)}           % Exponential(λ)
+
+% Convergence
+\newcommand{\convdist}{\xrightarrow{d}}                             % Convergence in distribution
+\newcommand{\convprob}{\xrightarrow{p}}                             % Convergence in probability
+\newcommand{\convas}{\xrightarrow{a.s.}}                            % Almost sure convergence
+\newcommand{\convLp}[1]{\xrightarrow{L^{#1}}}                       % L^p convergence
+
+% Independence and identically distributed
+\newcommand{\iid}{\stackrel{\text{iid}}{\sim}}                      % i.i.d. notation
+\newcommand{\ind}{\perp\!\!\!\perp}                                 % Independence symbol
+
+% Indicator function (using dsfont package)
+\newcommand{\Ind}[1]{\mathds{1}_{#1}}                               % Indicator: 𝟙_A
+\newcommand{\One}{\mathds{1}}                                       % Indicator: 𝟙
+
+% Optimization
+\DeclareMathOperator*{\argmin}{arg\,min}                            % Argmin: argmin
+\DeclareMathOperator*{\argmax}{arg\,max}                            % Argmax: argmax
+\newcommand{\minimize}{\operatorname{minimize}}                      % minimize
+\newcommand{\maximize}{\operatorname{maximize}}                      % maximize
+\newcommand{\subjectto}{\operatorname{subject\,to}}                 % subject to
+
+% Set Theory
+\newcommand{\set}[1]{\left\{#1\right\}}                            % Set notation: {·}
+\newcommand{\setbuilder}[2]{\left\{#1 \mid #2\right\}}             % Set builder: {x | condition}
+\newcommand{\card}[1]{\left|#1\right|}                              % Cardinality: |A|
+\newcommand{\powerset}[1]{\mathcal{P}\left(#1\right)}               % Power set: 𝒫(A)
+\newcommand{\union}{\cup}                                            % Union: ∪
+\newcommand{\Union}{\bigcup}                                         % Big union: ⋃
+\newcommand{\intersect}{\cap}                                        % Intersection: ∩
+\newcommand{\Intersect}{\bigcap}                                     % Big intersection: ⋂
+\newcommand{\comp}[1]{#1^{\complement}}                              % Complement: Aᶜ
+% Note: \setminus already defined in LaTeX for set difference: \
+
+% Complexity and Asymptotic Notation
+\newcommand{\Oh}{\mathcal{O}}                                        % Big-O: 𝒪
+\newcommand{\oh}{o}                                                  % Little-o: o
+% Note: \Omega, \omega, \Theta already defined as Greek letters
+% Use them directly for complexity notation
+
+% Linear Algebra Operators
+% Note: \rank already defined by physics package
+\DeclareMathOperator{\nullity}{nullity}                             % Nullity: nullity(A)
+\DeclareMathOperator{\Span}{span}                                   % Span: span(v₁,...,vₙ)
+\DeclareMathOperator{\Ker}{ker}                                     % Kernel: ker(T)
+\DeclareMathOperator{\Image}{im}                                    % Image: im(T)
+\DeclareMathOperator{\Null}{null}                                   % Null space: null(A)
+\DeclareMathOperator{\Row}{row}                                     % Row space: row(A)
+\DeclareMathOperator{\Col}{col}                                     % Column space: col(A)
+\DeclareMathOperator{\diag}{diag}                                   % Diagonal: diag(a₁,...,aₙ)
+\newcommand{\transpose}[1]{#1^{\top}}                                % Transpose: Aᵀ
+\newcommand{\hermitian}[1]{#1^{\dagger}}                             % Hermitian conjugate: A†
+\newcommand{\inv}[1]{#1^{-1}}                                        % Inverse: A⁻¹
+% Note: \det already defined in LaTeX, use it directly
 
 % Note: \abs{} and \norm{} are now provided by physics package
+% Note: \tr (trace) and \rank are provided by physics package
 % If you need custom sizing behavior, uncomment these:
 % \renewcommand{\abs}[1]{\left|#1\right|}
 % \renewcommand{\norm}[1]{\left\|#1\right\|}

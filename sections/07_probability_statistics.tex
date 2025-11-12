@@ -1,0 +1,145 @@
+% 07_probability_statistics.tex
+% Demonstrates probability and statistics macros
+
+\section{Probability and Statistics}
+
+This section demonstrates the probability and statistics macros available in the template.
+
+\subsection{Basic Probability}
+
+\subsubsection{Probability Notation}
+
+The probability of event $A$ is denoted $\Prob{A}$. For conditional probability:
+\[
+\Prob{A \given B} = \frac{\Prob{A \cap B}}{\Prob{B}}
+\]
+
+Bayes' theorem:
+\[
+\Prob{A \given B} = \frac{\Prob{B \given A} \Prob{A}}{\Prob{B}}
+\]
+
+\subsubsection{Independence}
+
+Two events $A$ and $B$ are independent if $A \ind B$, which means:
+\[
+\Prob{A \cap B} = \Prob{A} \cdot \Prob{B}
+\]
+
+\subsection{Random Variables and Expectations}
+
+\subsubsection{Expectation and Variance}
+
+For a random variable $X$:
+\begin{align}
+\Expect{X} &= \int_{-\infty}^{\infty} x f(x) \, dx \\
+\Var{X} &= \Expect{(X - \Expect{X})^2} = \Expect{X^2} - (\Expect{X})^2
+\end{align}
+
+The standard deviation is $\StdDev{X} = \sqrt{\Var{X}}$.
+
+\subsubsection{Covariance and Correlation}
+
+For random variables $X$ and $Y$:
+\begin{align}
+\Cov{X}{Y} &= \Expect{(X - \Expect{X})(Y - \Expect{Y})} \\
+\Corr{X}{Y} &= \frac{\Cov{X}{Y}}{\StdDev{X} \StdDev{Y}}
+\end{align}
+
+Properties:
+\begin{itemize}
+    \item $-1 \leq \Corr{X}{Y} \leq 1$
+    \item If $X \ind Y$, then $\Cov{X}{Y} = 0$
+    \item $\Var{X + Y} = \Var{X} + \Var{Y} + 2\Cov{X}{Y}$
+\end{itemize}
+
+\subsection{Common Distributions}
+
+\subsubsection{Normal Distribution}
+
+If $X \sim \Normal{\mu}{\sigma^2}$, then:
+\[
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\]
+
+Standard normal: $Z \sim \Normal{0}{1}$.
+
+\subsubsection{Discrete Distributions}
+
+\begin{itemize}
+    \item \textbf{Bernoulli}: $X \sim \Bernoulli{p}$ with $\Prob{X=1} = p$
+    \item \textbf{Binomial}: $X \sim \Binomial{n}{p}$ for $n$ independent Bernoulli trials
+    \[
+    \Prob{X = k} = \binom{n}{k} p^k (1-p)^{n-k}
+    \]
+    \item \textbf{Poisson}: $X \sim \Poisson{\lambda}$ for counting events
+    \[
+    \Prob{X = k} = \frac{\lambda^k e^{-\lambda}}{k!}
+    \]
+\end{itemize}
+
+\subsubsection{Continuous Distributions}
+
+\begin{itemize}
+    \item \textbf{Uniform}: $X \sim \Uniform{a}{b}$ with constant density on $[a,b]$
+    \item \textbf{Exponential}: $X \sim \Exponential{\lambda}$ for waiting times
+    \[
+    f(x) = \lambda e^{-\lambda x}, \quad x \geq 0
+    \]
+\end{itemize}
+
+\subsection{Indicator Functions}
+
+The indicator function $\Ind{A}$ (or $\One_A$) is defined as:
+\[
+\Ind{A}(\omega) = \begin{cases}
+1 & \text{if } \omega \in A \\
+0 & \text{if } \omega \notin A
+\end{cases}
+\]
+
+Useful property:
+\[
+\Expect{\Ind{A}} = \Prob{A}
+\]
+
+Example: $\Expect{X} = \sum_{i=1}^{n} x_i \Prob{X = x_i} = \sum_{i=1}^{n} x_i \Expect{\Ind{X = x_i}}$
+
+\subsection{Convergence of Random Variables}
+
+Let $X_1, X_2, \ldots$ be a sequence of random variables and $X$ be a random variable.
+
+\begin{itemize}
+    \item \textbf{Convergence in distribution}: $X_n \convdist X$
+    \item \textbf{Convergence in probability}: $X_n \convprob X$
+    \item \textbf{Almost sure convergence}: $X_n \convas X$
+    \item \textbf{$L^p$ convergence}: $X_n \convLp{p} X$
+\end{itemize}
+
+\subsubsection{Law of Large Numbers}
+
+Let $X_1, X_2, \ldots \iid \mu$ with $\Expect{X_1} = \mu < \infty$. Then:
+\[
+\frac{1}{n}\sum_{i=1}^{n} X_i \convprob \mu
+\]
+
+\subsubsection{Central Limit Theorem}
+
+Let $X_1, X_2, \ldots \iid$ with $\Expect{X_1} = \mu$ and $\Var{X_1} = \sigma^2 < \infty$. Then:
+\[
+\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \convdist \Normal{0}{1}
+\]
+
+where $\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i$.
+
+\subsection{Statistical Inference}
+
+\subsubsection{Bias and Mean Squared Error}
+
+For an estimator $\hat{\theta}$ of parameter $\theta$:
+\begin{align}
+\bias{\hat{\theta}} &= \Expect{\hat{\theta}} - \theta \\
+\MSE{\hat{\theta}} &= \Expect{(\hat{\theta} - \theta)^2} = \Var{\hat{\theta}} + (\bias{\hat{\theta}})^2
+\end{align}
+
+An estimator is \textbf{unbiased} if $\bias{\hat{\theta}} = 0$.
