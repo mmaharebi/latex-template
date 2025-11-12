@@ -1,0 +1,50 @@
+% main.tex
+% Physical-Style Mathematical Notation Template
+% Main entry point - includes modular files from config/ and sections/
+
+\documentclass[11pt,a4paper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONFIGURATION FILES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{config/packages}      % All package imports
+\input{config/macros}        % Custom notation macros
+\input{config/theorems}      % Theorem environments
+\input{config/metadata}      % Title, author, date
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document serves as both a template and demonstration of a comprehensive LaTeX system for scientific and technical writing. It implements a consistent visual notation system that distinguishes scalars, vectors, matrices, and tensors through distinct typographic styles. The template includes colored theorem boxes, glossary support, bibliography management, SI units integration, and enhanced mathematical commands. Five demonstration chapters illustrate all features through practical examples from mathematics, physics, and engineering. This template is production-ready and can be customized for research papers, technical reports, theses, or educational materials.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAIN CONTENT
+% Each chapter demonstrates a different feature of the template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{chapters/01_notation_system}
+\input{chapters/02_math_commands}
+\input{chapters/03_theorem_boxes}
+\input{chapters/04_advanced_features}
+\input{chapters/05_complete_example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY (if using)
+% Uncomment the following lines to include bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \bibliographystyle{plain}
+% \bibliography{references}
+
+\end{document}

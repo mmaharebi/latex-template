@@ -1,0 +1,78 @@
+% packages.tex
+% All package imports for the Physical-Style Notation Template
+
+% Encoding and fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Mathematics
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}  % Bold math symbols
+
+% Graphics and figures
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% TikZ libraries for advanced drawings
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathmorphing}
+
+% Page layout
+\usepackage{geometry}
+\geometry{margin=1in}
+
+% Colors
+\usepackage{xcolor}
+\definecolor{vectorcolor}{RGB}{0,102,204}
+\definecolor{forcecolor}{RGB}{204,0,0}
+\definecolor{momentcolor}{RGB}{0,153,0}
+
+% Hyperlinks and references
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+}
+
+% Better tables
+\usepackage{booktabs}
+\usepackage{array}
+
+% Better lists
+\usepackage{enumitem}
+
+% Units and measurements
+\usepackage{siunitx}
+
+% Better captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Colored theorem boxes
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Glossaries and acronyms (must load before hyperref)
+\usepackage[acronym,toc]{glossaries}
+
+% Code listings (optional, if needed)
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single
+}

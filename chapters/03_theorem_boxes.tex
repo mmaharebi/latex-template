@@ -1,0 +1,124 @@
+% Chapter 3: Theorem Boxes
+% Demonstrates colored theorem environments
+
+\section{Theorem Boxes}
+
+The template provides beautiful colored boxes for theorems, definitions, and notes.
+
+\subsection{Numbered Theorem Environments}
+
+\subsubsection{Theorems}
+
+\begin{theorem}{Pythagorean Theorem}{pythag}
+In a right triangle with legs of length $\scalar{a}$ and $\scalar{b}$, and hypotenuse of length $\scalar{c}$:
+\[
+\scalar{a}^2 + \scalar{b}^2 = \scalar{c}^2
+\]
+\end{theorem}
+
+Reference it later: See Theorem~\ref{thm:pythag}.
+
+\begin{theorem}{Fundamental Theorem of Calculus}{ftc}
+If $f$ is continuous on $[a,b]$ and $F$ is an antiderivative of $f$, then:
+\[
+\int_a^b f(x) \dif x = F(b) - F(a)
+\]
+\end{theorem}
+
+\subsubsection{Lemmas and Corollaries}
+
+\begin{lemma}{Cauchy-Schwarz Inequality}{cs}
+For any vectors $\vect{u}$ and $\vect{v}$:
+\[
+|\vect{u} \vdot \vect{v}| \leq \norm{\vect{u}} \cdot \norm{\vect{v}}
+\]
+\end{lemma}
+
+\begin{corollary}{Triangle Inequality}{triangle}
+For any vectors $\vect{u}$ and $\vect{v}$:
+\[
+\norm{\vect{u} + \vect{v}} \leq \norm{\vect{u}} + \norm{\vect{v}}
+\]
+\end{corollary}
+
+\subsubsection{Definitions}
+
+\begin{definition}{Linear Independence}{linindep}
+A set of vectors $\{\vect{v}_1, \vect{v}_2, \ldots, \vect{v}_n\}$ is \textbf{linearly independent} if:
+\[
+c_1\vect{v}_1 + c_2\vect{v}_2 + \cdots + c_n\vect{v}_n = \vect{0}
+\]
+implies $c_1 = c_2 = \cdots = c_n = 0$.
+\end{definition}
+
+\begin{definition}{Eigenvalue and Eigenvector}{eigen}
+A scalar $\lambda$ is an \textbf{eigenvalue} of matrix $\matr{A}$ if there exists a non-zero vector $\vect{v}$ (the \textbf{eigenvector}) such that:
+\[
+\matr{A}\vect{v} = \lambda\vect{v}
+\]
+\end{definition}
+
+\subsubsection{Notes}
+
+\begin{note}{Important Observation}{note1}
+The notation system helps distinguish between $\matr{A}\vect{v}$ (matrix times vector) and $\scalar{A}\vect{v}$ (scalar times vector) at a glance.
+\end{note}
+
+\subsection{Plain Theorem Environments}
+
+For backward compatibility, plain (non-colored) environments are also available:
+
+\begin{example}[Finding Eigenvalues]
+For the matrix $\matr{A} = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$, solve:
+\[
+\det(\matr{A} - \lambda\matr{I}) = 0
+\]
+\[
+\det\begin{bmatrix} 2-\lambda & 1 \\ 1 & 2-\lambda \end{bmatrix} = (2-\lambda)^2 - 1 = 0
+\]
+Therefore $\lambda = 3$ or $\lambda = 1$.
+\end{example}
+
+\begin{remark}[On Numerical Stability]
+When computing eigenvalues numerically, use specialized algorithms like QR decomposition rather than direct determinant computation.
+\end{remark}
+
+\subsection{Utility Boxes}
+
+\subsubsection{Warning Box}
+
+\begin{warningbox}
+Division by zero is undefined! Always check denominators before computing.
+\end{warningbox}
+
+\subsubsection{Important Box}
+
+\begin{importantbox}
+Remember: matrix multiplication is NOT commutative! 
+\[
+\matr{A}\matr{B} \neq \matr{B}\matr{A} \quad \text{(in general)}
+\]
+\end{importantbox}
+
+\subsubsection{Tip Box}
+
+\begin{tipbox}{Computational Efficiency}{tip1}
+For large sparse matrices, use specialized sparse solvers instead of dense matrix operations to save memory and computation time.
+\end{tipbox}
+
+\subsubsection{Solution Box}
+
+\begin{solutionbox}
+\textbf{Solution to Example:}
+\begin{enumerate}
+    \item Set up the characteristic equation
+    \item Solve for eigenvalues: $\lambda_1 = 3$, $\lambda_2 = 1$
+    \item Find eigenvectors by solving $(\matr{A} - \lambda\matr{I})\vect{v} = \vect{0}$
+\end{enumerate}
+\end{solutionbox}
+
+\subsubsection{Answer Box}
+
+\begin{answerbox}
+Final Answer: $\lambda_1 = 3$, $\lambda_2 = 1$
+\end{answerbox}

@@ -1,0 +1,161 @@
+% Chapter 4: Advanced Features
+% Demonstrates glossary, bibliography, SI units, and quantum notation
+
+\section{Advanced Features}
+
+\subsection{Glossary and Acronyms}
+
+The template supports glossaries and acronyms using the \texttt{glossaries} package.
+
+\subsubsection{Using Glossary Terms}
+
+First mention of a term shows the full description: \gls{wavelength}.
+
+Subsequent mentions show just the term: \gls{wavelength}.
+
+You can also use: \Gls{frequency} (capitalized), \glspl{wavelength} (plural).
+
+\subsubsection{Using Acronyms}
+
+First use shows full form: \gls{em}.
+
+Later uses show abbreviation: \gls{em}.
+
+Force full form: \acrfull{em}.
+
+\subsubsection{Adding Glossary Entries}
+
+Edit \texttt{config/glossary.tex} to add your terms:
+\begin{verbatim}
+\newglossaryentry{myterm}{
+  name=my term,
+  description={Description of my term}
+}
+
+\newacronym{api}{API}{Application Programming Interface}
+\end{verbatim}
+
+\subsection{Bibliography and Citations}
+
+The template is ready for BibTeX citations. Add entries to \texttt{references.bib}:
+
+\begin{verbatim}
+@article{shannon1948,
+  author = {Shannon, Claude E.},
+  title = {A Mathematical Theory of Communication},
+  journal = {Bell System Technical Journal},
+  year = {1948}
+}
+\end{verbatim}
+
+Then cite in your document: As shown by Shannon \cite{shannon1948}, information has entropy.
+
+To compile with bibliography:
+\begin{verbatim}
+pdflatex main
+bibtex main
+pdflatex main
+pdflatex main
+\end{verbatim}
+
+\subsection{SI Units with siunitx}
+
+The \texttt{siunitx} package provides consistent unit formatting:
+
+\subsubsection{Basic Units}
+\begin{itemize}
+    \item Speed of light: \SI{3e8}{\meter\per\second}
+    \item Temperature: \SI{273.15}{\kelvin}
+    \item Frequency: \SI{2.4}{\giga\hertz}
+    \item Energy: \SI{13.6}{\electronvolt}
+\end{itemize}
+
+\subsubsection{Ranges}
+Wavelength range: \SIrange{400}{700}{\nano\meter}
+
+Temperature range: \SIrange{0}{100}{\celsius}
+
+\subsubsection{In Equations}
+The wavelength-frequency relationship:
+\[
+\lambda = \frac{c}{f} = \frac{\SI{3e8}{\meter\per\second}}{\SI{2.4e9}{\hertz}} = \SI{12.5}{\centi\meter}
+\]
+
+\subsection{Quantum Mechanics Notation}
+
+\subsubsection{Bra-Ket Notation}
+
+Ket vector (state):
+\[
+\ket{\psi} = \alpha\ket{0} + \beta\ket{1}
+\]
+
+Bra vector (dual):
+\[
+\bra{\psi} = \alpha^*\bra{0} + \beta^*\bra{1}
+\]
+
+Inner product:
+\[
+\braket{\phi}{\psi} = \int_{-\infty}^{\infty} \phi^*(x)\psi(x) \dif x
+\]
+
+\subsubsection{Operators}
+
+Hamiltonian operator:
+\[
+\hop{H}\ket{\psi} = E\ket{\psi}
+\]
+
+Commutator:
+\[
+\comm{\hop{x}}{\hop{p}} = \imag\hbar
+\]
+
+Position and momentum operators:
+\[
+\hop{x}\ket{x} = x\ket{x}, \quad \hop{p} = -\imag\hbar\frac{\partial}{\partial x}
+\]
+
+\subsubsection{Expectation Values}
+
+\[
+\langle \hop{A} \rangle = \braket{\psi}{\hop{A}\psi} = \int \psi^*(x) \hop{A} \psi(x) \dif x
+\]
+
+\subsection{Custom Lists with enumitem}
+
+\subsubsection{Customized Itemize}
+
+\begin{itemize}[label=$\triangleright$, itemsep=0pt]
+    \item First item
+    \item Second item
+    \item Third item
+\end{itemize}
+
+\subsubsection{Customized Enumerate}
+
+\begin{enumerate}[label=(\alph*), leftmargin=2cm]
+    \item Step one
+    \item Step two
+    \item Step three
+\end{enumerate}
+
+\subsection{Tables with booktabs}
+
+The template includes the \texttt{booktabs} package for professional tables:
+
+\begin{table}[h]
+\centering
+\caption{Comparison of notation styles}
+\begin{tabular}{lcc}
+\toprule
+Object & Standard & This Template \\
+\midrule
+Scalar & $x$ & $\scalar{x}$ \\
+Vector & $\mathbf{v}$ or $\vec{v}$ & $\vect{v}$ \\
+Matrix & $\mathbf{A}$ & $\matr{A}$ \\
+Tensor & $\mathcal{T}$ & $\tensor{T}$ \\
+\bottomrule
+\end{tabular}
+\end{table}

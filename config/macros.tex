@@ -1,0 +1,124 @@
+% macros.tex
+% Custom mathematical notation macros for scalars, vectors, matrices, and tensors
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PHYSICAL-STYLE NOTATION MACROS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Scalar: italic (default math mode, explicit wrapper for consistency)
+\newcommand{\scalar}[1]{\mathit{#1}}
+
+% Vector: bold + single underline (using \mathbf and \underline)
+\newcommand{\vect}[1]{\mathbf{\underline{#1}}}
+
+% Matrix: bold + double underline
+\newcommand{\matr}[1]{\mathbf{\underline{\underline{#1}}}}
+
+% Tensor (order >= 3): bold calligraphic (optional)
+\newcommand{\tensor}[1]{\boldsymbol{\mathcal{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONVENIENCE MACROS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Differential and special constants
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\imag}{\mathrm{j}}  % Imaginary unit (engineering convention)
+
+% Probability and norms
+\newcommand{\Prob}[1]{\mathrm{P}\left(#1\right)}
+\newcommand{\given}{\,|\,}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+% Partial derivatives
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\pdc}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+\newcommand{\pdt}[1]{\frac{\partial #1}{\partial t}}
+\newcommand{\partialt}{\partial_t}
+
+% Total derivatives
+\newcommand{\td}[2]{\frac{\dif #1}{\dif #2}}
+\newcommand{\tdd}[2]{\frac{\dif^2 #1}{\dif^2 #2}}
+
+% Definition symbol
+\newcommand{\eqdef}{\stackrel{\text{def}}{=}}
+
+% Common vectors
+\newcommand{\vzero}{\vect{0}}
+\newcommand{\vi}{\vect{i}}
+\newcommand{\vj}{\vect{j}}
+\newcommand{\vk}{\vect{k}}
+
+% Common matrices
+\newcommand{\mzero}{\matr{0}}
+\newcommand{\midentity}{\matr{I}}
+
+% Unit vector notation
+\newcommand{\uvect}[1]{\hat{\vect{#1}}}
+
+% Vector operations
+\newcommand{\vdot}{\bullet}
+\newcommand{\vproj}[2]{\text{proj}_{\vect{#1}}\vect{#2}}
+\newcommand{\vang}[2]{\angle(\vect{#1},\vect{#2})}
+
+% Unit vectors in Cartesian coordinates
+\newcommand{\xhat}{\hat{\vect{x}}}
+\newcommand{\yhat}{\hat{\vect{y}}}
+\newcommand{\zhat}{\hat{\vect{z}}}
+
+% Unit vectors in cylindrical coordinates
+\newcommand{\rhohat}{\hat{\vect{\rho}}}
+\newcommand{\phihat}{\hat{\vect{\phi}}}
+
+% Unit vectors in spherical coordinates
+\newcommand{\Rhat}{\hat{\vect{R}}}
+\newcommand{\thetahat}{\hat{\vect{\theta}}}
+
+% Derivative operators
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\Diff}{\mathrm{D}}
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+% Vector calculus operators
+\newcommand{\vnabla}{\mathbf{\nabla}}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\curl}{curl}
+
+% Matrix operators
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\rank}{rank}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% QUANTUM MECHANICS NOTATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Bra-ket notation (Dirac notation)
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+\newcommand{\ketbra}[2]{\left| #1 \right\rangle\left\langle #2 \right|}
+\newcommand{\expectation}[1]{\left\langle #1 \right\rangle}
+
+% Common quantum operators (with hat)
+\newcommand{\hop}[1]{\hat{#1}}
+\newcommand{\comm}[2]{\left[\hop{#1}, \hop{#2}\right]}
+\newcommand{\acomm}[2]{\left\{\hop{#1}, \hop{#2}\right\}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COMPLEX ANALYSIS NOTATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Real and imaginary parts (Gothic/Fraktur font)
+% Redefine the existing \Re and \Im commands to use Fraktur
+\renewcommand{\Re}{\mathfrak{Re}}
+\renewcommand{\Im}{\mathfrak{Im}}
+
+% Common sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}

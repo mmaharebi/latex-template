@@ -1,0 +1,177 @@
+% theorems.tex
+% Theorem-like environments using tcolorbox for better visual presentation
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLORED THEOREM ENVIRONMENTS (using tcolorbox)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Theorem (blue)
+\newtcbtheorem[number within=section]{theorem}{Theorem}{
+  colback=blue!5,
+  colframe=blue!35!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=2pt
+}{thm}
+
+% Definition (green)
+\newtcbtheorem[use counter from=theorem]{definition}{Definition}{
+  colback=green!5,
+  colframe=green!35!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=2pt
+}{def}
+
+% Note (yellow/orange)
+\newtcbtheorem[use counter from=theorem]{note}{Note}{
+  colback=yellow!5,
+  colframe=orange!75!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=2pt
+}{note}
+
+% Lemma (uses theorem counter)
+\newtcbtheorem[use counter from=theorem]{lemma}{Lemma}{
+  colback=blue!5,
+  colframe=blue!35!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=2pt
+}{lem}
+
+% Proposition (uses theorem counter)
+\newtcbtheorem[use counter from=theorem]{proposition}{Proposition}{
+  colback=blue!5,
+  colframe=blue!35!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=2pt
+}{prop}
+
+% Corollary (uses theorem counter)
+\newtcbtheorem[use counter from=theorem]{corollary}{Corollary}{
+  colback=blue!5,
+  colframe=blue!35!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=2pt
+}{cor}
+
+% Example (uses theorem counter)
+\newtcbtheorem[use counter from=theorem]{example}{Example}{
+  colback=gray!5,
+  colframe=gray!60!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=2pt
+}{ex}
+
+% Remark (uses theorem counter)
+\newtcbtheorem[use counter from=theorem]{remark}{Remark}{
+  colback=purple!5,
+  colframe=purple!60!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=2pt
+}{rem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SIMPLE ENVIRONMENTS (for backward compatibility with amsthm syntax)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% These use the standard amsthm syntax: \begin{exampleplain}[Optional Title]
+% Restore simple theorem environments for those that don't need fancy boxes
+\theoremstyle{definition}
+\newtheorem{exampleplain}{Example}[section]
+\newtheorem{remarkplain}[exampleplain]{Remark}
+\newtheorem{definitionplain}[exampleplain]{Definition}
+
+% Make standard environments use the plain versions by default for backward compatibility
+% Users can use the tcolorbox versions by explicitly calling them with {title}{label}
+\let\example\exampleplain
+\let\endexample\endexampleplain
+\let\remark\remarkplain
+\let\endremark\endremarkplain
+\let\definition\definitionplain
+\let\enddefinition\enddefinitionplain
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UTILITY BOXES (non-numbered environments)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Warning box (red)
+\newtcolorbox{warningbox}{
+  colback=red!5,
+  colframe=red!75!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=2pt
+}
+
+% Tip box (orange)
+\newtcbtheorem[number within=section]{tipbox}{Tip}{
+  colback=orange!10,
+  colframe=orange!70!black,
+  fonttitle=\bfseries,
+  title filled,
+  boxrule=0.8pt,
+  arc=3pt
+}{tip}
+
+% Answer box (blue) - for homework/exercise solutions
+\newtcolorbox{answerbox}{
+  colback=blue!5,
+  colframe=blue!75!black,
+  boxrule=2pt,
+  arc=5pt,
+  left=10pt,
+  right=10pt,
+  top=10pt,
+  bottom=10pt
+}
+
+% Solution box (green) - with title
+\newtcolorbox{solutionbox}{
+  colback=green!5,
+  colframe=green!60!black,
+  boxrule=1.5pt,
+  arc=4pt,
+  left=8pt,
+  right=8pt,
+  top=8pt,
+  bottom=8pt,
+  title=Solution
+}
+
+% Important box (orange)
+\newtcolorbox{importantbox}{
+  colback=orange!5,
+  colframe=orange!75!black,
+  boxrule=1.5pt,
+  arc=4pt,
+  left=8pt,
+  right=8pt,
+  top=8pt,
+  bottom=8pt
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% STANDARD THEOREM ENVIRONMENTS (commented out, kept for reference)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % Standard amsthm theorem environments (plain style)
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{proposition}[theorem]{Proposition}
+% \newtheorem{corollary}[theorem]{Corollary}
+% 
+% % Definition environments
+% \newtheorem{definition}[theorem]{Definition}
+% \newtheorem{example}[theorem]{Example}
+% \newtheorem{remark}[theorem]{Remark}
+% \newtheorem{note}[theorem]{Note}
+
+% Proof environment (already defined by amsthm, but can be customized)
+% \renewcommand{\qedsymbol}{$\blacksquare$}

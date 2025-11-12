@@ -1,0 +1,146 @@
+% Chapter 5: Complete Example
+% A full physics problem demonstrating all features
+
+\section{Complete Example: Electromagnetic Wave}
+
+This example demonstrates multiple features of the template in a realistic context.
+
+\subsection{Problem Statement}
+
+\begin{importantbox}
+Calculate the electric and magnetic fields of a plane electromagnetic wave propagating in free space.
+\end{importantbox}
+
+\subsection{Theory}
+
+\begin{definition}{Electromagnetic Wave}{emwave}
+An \gls{em} wave is a solution to Maxwell's equations in vacuum that satisfies:
+\[
+\vnabla^2 \vect{E} = \mu_0\epsilon_0 \pdd{\vect{E}}{t}, \quad
+\vnabla^2 \vect{B} = \mu_0\epsilon_0 \pdd{\vect{B}}{t}
+\]
+\end{definition}
+
+\begin{theorem}{Wave Equation Solution}{wavesol}
+A plane wave solution has the form:
+\begin{align}
+\vect{E}(\vect{r}, t) &= \vect{E}_0 \cos(\vect{k} \vdot \vect{r} - \omega t) \\
+\vect{B}(\vect{r}, t) &= \vect{B}_0 \cos(\vect{k} \vdot \vect{r} - \omega t)
+\end{align}
+where $\omega = c|\vect{k}|$ and $c = \SI{3e8}{\meter\per\second}$.
+\end{theorem}
+
+\subsection{Key Relationships}
+
+\subsubsection{Dispersion Relation}
+
+The \gls{wavelength} and \gls{frequency} are related by:
+\[
+\lambda = \frac{c}{f} = \frac{2\pi c}{\omega}
+\]
+
+For a wave at $f = \SI{2.4}{\giga\hertz}$:
+\[
+\lambda = \frac{\SI{3e8}{\meter\per\second}}{\SI{2.4e9}{\hertz}} = \SI{12.5}{\centi\meter}
+\]
+
+\subsubsection{Field Relationships}
+
+\begin{theorem}{Perpendicularity Conditions}{perp}
+The electric field, magnetic field, and wave vector satisfy:
+\begin{align}
+\vect{E} \perp \vect{B}, \quad
+\vect{E} \perp \vect{k}, \quad
+\vect{B} \perp \vect{k}
+\end{align}
+\end{theorem}
+
+Magnitude relationship:
+\[
+|\vect{B}| = \frac{|\vect{E}|}{c}
+\]
+
+\subsection{Specific Example}
+
+\begin{example}[Plane Wave Propagating in +z Direction]
+Consider a wave with $\vect{k} = k\zhat$ where $k = \SI{5.03e8}{\per\meter}$.
+
+The electric field polarized in $\xhat$ direction:
+\[
+\vect{E}(z,t) = E_0 \cos(kz - \omega t) \xhat
+\]
+
+The corresponding magnetic field (from $\vect{B} = \frac{1}{c}\hat{k} \times \vect{E}$):
+\[
+\vect{B}(z,t) = \frac{E_0}{c} \cos(kz - \omega t) \yhat
+\]
+
+where:
+\begin{itemize}
+    \item $E_0 = \SI{1}{\volt\per\meter}$ (amplitude)
+    \item $\omega = kc = \SI{1.51e17}{\radian\per\second}$
+    \item $f = \omega/(2\pi) = \SI{2.4}{\giga\hertz}$
+\end{itemize}
+\end{example}
+
+\subsection{Energy and Momentum}
+
+\subsubsection{Energy Density}
+
+The electromagnetic energy density:
+\[
+u = \frac{1}{2}\left(\epsilon_0 |\vect{E}|^2 + \frac{1}{\mu_0}|\vect{B}|^2\right)
+\]
+
+\begin{note}{Equal Contributions}{energy}
+For plane waves, the electric and magnetic contributions are equal:
+\[
+u_E = \frac{1}{2}\epsilon_0 |\vect{E}|^2 = u_B = \frac{1}{2\mu_0}|\vect{B}|^2
+\]
+\end{note}
+
+\subsubsection{Poynting Vector}
+
+Energy flux (power per area):
+\[
+\vect{S} = \frac{1}{\mu_0} \vect{E} \times \vect{B}
+\]
+
+For our example:
+\[
+|\vect{S}| = \frac{E_0^2}{c\mu_0} \cos^2(kz - \omega t)
+\]
+
+Time-averaged intensity:
+\[
+\langle S \rangle = \frac{E_0^2}{2c\mu_0} = \frac{(\SI{1}{\volt\per\meter})^2}{2 \times \SI{3e8}{\meter\per\second} \times \SI{1.257e-6}{\henry\per\meter}}
+\]
+
+\subsection{Solution Summary}
+
+\begin{solutionbox}
+For a \SI{2.4}{\giga\hertz} plane wave with $E_0 = \SI{1}{\volt\per\meter}$:
+
+\begin{enumerate}
+    \item \textbf{Wavelength:} $\lambda = \SI{12.5}{\centi\meter}$
+    \item \textbf{Wave vector:} $k = \SI{5.03e8}{\per\meter}$
+    \item \textbf{Electric field:} $\vect{E} = E_0 \cos(kz - \omega t) \xhat$
+    \item \textbf{Magnetic field:} $\vect{B} = (E_0/c) \cos(kz - \omega t) \yhat$
+    \item \textbf{Power density:} $\langle S \rangle \approx \SI{1.3}{\milli\watt\per\meter\squared}$
+\end{enumerate}
+\end{solutionbox}
+
+\subsection{Key Takeaways}
+
+\begin{tipbox}{Using the Notation System}{notation-tip}
+Notice how the notation system helps:
+\begin{itemize}
+    \item $\vect{E}, \vect{B}, \vect{k}, \vect{S}$ are clearly vectors (bold + underline)
+    \item $E_0, k, \omega, c$ are clearly scalars (italic)
+    \item No confusion in complex equations with many variables
+\end{itemize}
+\end{tipbox}
+
+\begin{warningbox}
+Always verify that $\vect{E} \perp \vect{B} \perp \vect{k}$ for plane waves. If these relationships don't hold, you may have made an error!
+\end{warningbox}
